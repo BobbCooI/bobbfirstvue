@@ -14,9 +14,8 @@ export default {
   components: {
     Nav,
     Main
-  }
+  },
+
 }
 </script>
 
-<style>
-</style>

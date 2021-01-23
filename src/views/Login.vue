@@ -1,7 +1,8 @@
   <template>
-<Nav/>
-<div>
-  
+      <section id="sec">
+        <Nav/>
+
+
 <form class="login__box" action="/signup/personSign" method="post">
         <input
           type="button"
@@ -19,9 +20,8 @@
           placeholder="Username"
           pattern="[a-zA-Z0-9]+"
           title="Usernames should only have letters a-Z and/or numbers."
-               class="inputBox"
-                         autocomplete="on"
-
+          class="inputBox"
+          autocomplete="on"
           required
         />
         <input
@@ -29,10 +29,8 @@
           type="password"
           name="pPassword"
           placeholder="Password"
-                              class="inputBox"
-               
- autocomplete="on"
-
+          class="inputBox"              
+          autocomplete="on"
           required
         />
         <input id="pSubmit" type="submit" name="pSubmit" value="Login"/>
@@ -42,13 +40,14 @@
           <br>
           Don't have an account? <a href="register.html" id="regiser">Register</a>!
         </p>
-      </form>
-    </div>
+      </form> 
+    </section>
 </template>
 
 <script>
   import Nav from '../components/Nav.vue';
 export default {
+  name: "loginPage",
   components: {
     Nav
   }
@@ -56,11 +55,13 @@ export default {
 </script>
 
 <style>
-body {
+body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #34495e;
+  width: 100%;
+  min-height: 100%;
+  background: #34495e !important;
 }
 
 .login__box {
@@ -109,10 +110,10 @@ body {
   border: 0;
   background: none;
   display: block;
-  margin: 20px auto;
+ margin: 20px auto;
   text-align: center;
   border: 2px solid #555555;
-  padding: 14px 10px;
+ padding: 14px 10px;
   font-size: 13px;
   width: 200px;
   outline: none;
@@ -121,8 +122,11 @@ body {
   transition: 0.25s;
 }
 
-.inputBox:focus{  width: 250px;
-  font-size: 15px;
+.inputBox:focus{ 
+  transform: scale(1.15);
+  transition: 0.2s ease-out;
+
+  font-size: 13px;
   border-color: #3498db;
 }
 
@@ -133,7 +137,7 @@ body {
 
 .login__box input[type="submit"] {
   background: none;
-  display: blocks;
+  display: block;
   margin: 20px auto;
   text-align: center;
   border: 2px solid #2ecc71;
@@ -147,14 +151,14 @@ body {
 }
 
 .login__box input[type="submit"]:hover {
-  background: none;
- background-color: #2ecc71;
+  background: #2ecc71;
+  background-color: #2ecc71;
   border-radius: 24px;
+  margin: 20px auto;
   cursor: pointer;
   transition: 0.25s;
   outline: none;
   border: 2px solid #2ecc71;
-  margin: 20px auto;
   text-align: center;
   text-align: center;
   width: 200px;

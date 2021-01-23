@@ -2,20 +2,20 @@
 <nav class="navbar">
       <div class="navbar__container">
         <a href="kid/bad.html" id="navbar__logo">kid (click me)</a>
-        <div class="navbar__toggle" id="mobile-menu">
+        <div class="navbar__toggle" id="mobile-menu" @click=mobileMenu>
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <anchor-router-link :to="{name: 'homePage', hash: '#home'}" active-class="navbar__links" id="home-page">Home</anchor-router-link>
+            <a href="https://vuehj23nso.glitch.me/#home" class="navbar__links" id="home-page">Home</a>
           </li>
           <li class="navbar__item">
-            <anchor-router-link :to="{name: 'homePage', hash: '#about'}" active-class="navbar__links" id="about-page">About</anchor-router-link>
+            <a href="https://vuehj23nso.glitch.me/#about" class="navbar__links" id="about-page">About</a>
           </li>
           <li class="navbar__item">
-            <anchor-router-link :to="{name: 'homePage', hash: '#services'}" active-class="navbar__links" id="services-page"
-              >Services</anchor-router-link>
+            <a href="https://vuehj23nso.glitch.me/#services" class="navbar__links" id="services-page"
+              >Services</a>
             
           </li>
           <li class="navbar__btn">
@@ -27,16 +27,64 @@
 </template>
 
 <script>
-import AnchorRouterLink from 'vue-anchor-router-link';
   export default {
   name: "navBar",
-components: {
-  AnchorRouterLink
+methods: {
+   mobileMenu (event) {
+  event.target.classList.toggle('is-active');
+  document.querySelector(".navbar__menu").classList.toggle('active');
+  },
+   highlightMenu () {
+  const elem = document.querySelector('.highlight');
+  const homeMenu = document.querySelector('#home-page');
+  const aboutMenu = document.querySelector('#about-page');
+  const servicesMenu = document.querySelector('#services-page');
+  let scrollPos = window.scrollY;
+  // adds 'highlight' class to my menu items
+  if (window.innerWidth > 960 && scrollPos < 600) {
+    homeMenu.classList.add('highlight');
+    aboutMenu.classList.remove('highlight');
+    servicesMenu.classList.remove('highlight');
+    return;
+  } else if (window.innerWidth > 960 && scrollPos < 1400) {
+    aboutMenu.classList.add('highlight');
+    homeMenu.classList.remove('highlight');
+    servicesMenu.classList.remove('highlight');
+    return;
+  } else if (window.innerWidth > 960 && scrollPos < 2345) {
+    servicesMenu.classList.add('highlight');
+    aboutMenu.classList.remove('highlight');
+    homeMenu.classList.remove('highlight');
+
+
+    return;
+  }
+
+  if ((elem && window.innerWidth < 960 && scrollPos < 600) || elem) {
+    elem.classList.remove('highlight');
+  }
 }
+
+},
+    
+    created() {
+      window.addEventListener('scroll', this.highlightMenu);    window.addEventListener('click', this.highlightMenu);
+
+
+    },
+    destroyed() {
+            window.removeEventListener('scroll', this.highlightMenu);    window.removeEventListener('click', this.highlightMenu);
+
+
+    }
 }
 </script>
-
-<style>
+<style >
+  *{
+    margin: 0;
+  }
+</style>
+<style scoped>
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,7 +102,7 @@ components: {
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  position: sticky !important;
   top: 0;
   z-index: 999;
 }
