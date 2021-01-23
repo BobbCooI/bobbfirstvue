@@ -59,7 +59,7 @@
           <h2>bruh</h2>
           <p>bruh pargaph</p>
           <button class="main__btn">
-            <a href="/signup/login.html">(sign up) bruhbutton</a>
+          <router-link :to="{name: 'loginPage'}">SIGN UP</router-link>
           </button>
         </div>
         <div class="main__img--container">

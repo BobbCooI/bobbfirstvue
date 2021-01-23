@@ -1,21 +1,19 @@
 <template>
-
-
-
+  <router-view/>
 </template>
 
-<script>
-  import Home from "./components/Main.vue";
+<!--<script>
 export default {
   name: 'App',
 
   components: {
-    Home
+    
   }
 }
-</script>
+</script>-->
 
 <style>
+  
 /*#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

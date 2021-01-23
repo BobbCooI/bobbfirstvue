@@ -8,15 +8,15 @@
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <routerlink :to="{path: 'Home'}" class="navbar__links" id="home-page">Home</routerlink>
+            <anchor-router-link :to="{name: 'homePage', hash: '#home'}" active-class="navbar__links" id="home-page">Home</anchor-router-link>
           </li>
           <li class="navbar__item">
-            <a href="#about" class="navbar__links" id="about-page">About</a>
+            <anchor-router-link :to="{name: 'homePage', hash: '#about'}" active-class="navbar__links" id="about-page">About</anchor-router-link>
           </li>
           <li class="navbar__item">
-            <a href="#services" class="navbar__links" id="services-page"
-              >Services</a
-            >
+            <anchor-router-link :to="{name: 'homePage', hash: '#services'}" active-class="navbar__links" id="services-page"
+              >Services</anchor-router-link>
+            
           </li>
           <li class="navbar__btn">
             <a href="#sign-up" class="button" id="signup">Sign Up</a>
@@ -27,8 +27,12 @@
 </template>
 
 <script>
-export default {
+import AnchorRouterLink from 'vue-anchor-router-link';
+  export default {
   name: "navBar",
+components: {
+  AnchorRouterLink
+}
 }
 </script>
 

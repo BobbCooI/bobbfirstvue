@@ -11,10 +11,12 @@
 
 
 export default {
-  name: 'Home',
   components: {
     Nav,
     Main
   }
 }
 </script>
+
+<style>
+</style>
