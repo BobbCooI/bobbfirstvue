@@ -8,13 +8,13 @@
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#home" class="navbar__links" id="home-page">Home</a>
+            <a href="https://vuehj23nso.glitch.me/#home" class="navbar__links" id="home-page" @click="log">Home</a>
           </li>
           <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#about" class="navbar__links" id="about-page">About</a>
+            <a href="https://vuehj23nso.glitch.me/#about" class="navbar__links" id="about-page" @click="log">About</a>
           </li>
           <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#services" class="navbar__links" id="services-page"
+            <a href="https://vuehj23nso.glitch.me/#services" class="navbar__links" id="services-page" @click="log"
               >Services</a>
             
           </li>
@@ -30,6 +30,10 @@
   export default {
   name: "navBar",
 methods: {
+  log(event) {
+    console.log(window.scrollY, window.scrollX)
+
+  },
    mobileMenu (event) {
   event.target.classList.toggle('is-active');
   document.querySelector(".navbar__menu").classList.toggle('active');
@@ -91,6 +95,9 @@ methods: {
   padding: 0;
   font-family: "Kumbh Sans", sans-serif;
   scroll-behavior: smooth;
+}
+  .highlight {
+  border-bottom: 4px solid rgb(132, 0, 255);
 }
 .hidden {
   display: none;

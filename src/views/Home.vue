@@ -1,5 +1,5 @@
 <template>
-<Nav />
+<Nav/>
 <Main />
 </template>
 
@@ -15,7 +15,7 @@ export default {
     Nav,
     Main
   },
-
+}
 }
 </script>
 
