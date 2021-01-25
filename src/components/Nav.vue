@@ -7,16 +7,28 @@
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
-          <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#home" class="navbar__links" id="home-page" @click="log">Home</a>
+          <li class="navbar__item">         
+            <router-link :to="{path: '/', hash: '#home'}" class="navbar__links" id="home-page" @click="log">Home</router-link>
           </li>
           <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#about" class="navbar__links" id="about-page" @click="log">About</a>
+            <a class="navbar__links" href="javascript:void(0)" id="about-page">About <i class="fas fa-angle-down"></i></a>
+
+            <ul class="dropdown">
+              <li>
+                 <a class="dropdown-item" >Contact</a>
+              <li>   <a class="dropdown-item" >FAQ</a></li>
+            <li>  <a class="dropdown-item" >Help</a></li>
+           <li> <a class="dropdown-item" >Statistics</a></li>
+              </li>  
+            </ul>
+        <!--    <router-link :to="{path: '/', hash: '#about'}" class="navbar__links" id="about-page" @click="log">About</router-link>-->
           </li>
           <li class="navbar__item">
-            <a href="https://vuehj23nso.glitch.me/#services" class="navbar__links" id="services-page" @click="log"
-              >Services</a>
-            
+            <a class="navbar__links" href="javascript:void(0)" id="services-page" @click="log">Services <i class="fas fa-angle-down"></i></a>
+            <ul class="dropdown">
+             <li><a class="dropdown-item">Anime</a></li> 
+            <li>  <a class="dropdown-item" >Discord</a></li>
+            </ul>
           </li>
           <li class="navbar__btn">
             <a href="#sign-up" class="button" id="signup">Sign Up</a>
@@ -28,10 +40,11 @@
 
 <script>
   export default {
+
   name: "navBar",
 methods: {
   log(event) {
-    console.log(window.scrollY, window.scrollX)
+    console.log('r', window.scrollY, window.scrollX)
 
   },
    mobileMenu (event) {
@@ -40,9 +53,12 @@ methods: {
   },
    highlightMenu () {
   const elem = document.querySelector('.highlight');
-  const homeMenu = document.querySelector('#home-page');
-  const aboutMenu = document.querySelector('#about-page');
+
+ const hero = document.querySelector('.hero'); // to make sure user is in homepage
+     if(hero) {
+     const aboutMenu = document.querySelector('#about-page');
   const servicesMenu = document.querySelector('#services-page');
+         const homeMenu = document.querySelector('#home-page');
   let scrollPos = window.scrollY;
   // adds 'highlight' class to my menu items
   if (window.innerWidth > 960 && scrollPos < 600) {
@@ -59,8 +75,6 @@ methods: {
     servicesMenu.classList.add('highlight');
     aboutMenu.classList.remove('highlight');
     homeMenu.classList.remove('highlight');
-
-
     return;
   }
 
@@ -68,19 +82,23 @@ methods: {
     elem.classList.remove('highlight');
   }
 }
-
+   }
 },
     
     created() {
-      window.addEventListener('scroll', this.highlightMenu);    window.addEventListener('click', this.highlightMenu);
 
+      window.addEventListener('scroll', this.highlightMenu);   
+      window.addEventListener('click', this.highlightMenu);
+      
+      },
+    unmounted() {
 
-    },
-    destroyed() {
-            window.removeEventListener('scroll', this.highlightMenu);    window.removeEventListener('click', this.highlightMenu);
-
-
-    }
+            window.removeEventListener('scroll', this.highlightMenu);    
+      window.removeEventListener('click', this.highlightMenu);
+      }
+      
+  
+   
 }
 </script>
 <style >
@@ -89,13 +107,16 @@ methods: {
   }
 </style>
 <style scoped>
-* {
+/** {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Kumbh Sans", sans-serif;
   scroll-behavior: smooth;
-}
+}*/
+  i {
+    margin-left: 6px;
+  }
   .highlight {
   border-bottom: 4px solid rgb(132, 0, 255);
 }
@@ -103,7 +124,7 @@ methods: {
   display: none;
 }
 .navbar {
-  background: #131313;
+  background: #2b3c4e;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -111,6 +132,8 @@ methods: {
   font-size: 1.2rem;
   position: sticky !important;
   top: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   z-index: 999;
 }
 
@@ -147,10 +170,18 @@ methods: {
 }
 
 .navbar__item {
-  height: 80px;
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 20px;
+  margin: 15px;
+  display: inline-block;
 }
 
 .navbar__links {
+  outline: "none";
+  background: none;
+    border-radius: 20px;
+  font-size: 16px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -160,7 +191,23 @@ methods: {
   height: 100%;
   transition: all 0.3s ease;
 }
-
+  .dropdown {
+    list-style: none;
+    display: none;
+    position: absolute;
+  background-color: #2b3c4e;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 109;
+  }
+  .dropdown-item {
+      color: white;
+  padding: 12px 16px;
+    font-size: 12px;
+  text-decoration: none;
+  display: block;
+  }
+  .navbar__item:hover .dropdown {display: block;margin-top: 15px;}
 .navbar__btn {
   display: flex;
   justify-content: center;
@@ -188,7 +235,7 @@ methods: {
 }
 
 .navbar__links:hover {
-  color: #9518fc;
+  color: #85b4ff;
   transition: all 0.3s ease;
 }
 

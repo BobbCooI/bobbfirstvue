@@ -1,9 +1,9 @@
-  <template>
-      <section id="sec">
-        <Nav/>
+  <template >
 
+<section id="loginPage">
+        <Nav />
 
-<form class="login__box" action="/signup/personSign" method="post">
+<form class="login__box" action="....." method="post">
         <input
           type="button"
           value="Back"
@@ -55,14 +55,8 @@ export default {
 </script>
 
 <style>
-body{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  width: 100%;
-  min-height: 100%;
-  background: #34495e !important;
-}
+  
+.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-height: 100%;background: #34495e !important; z-index: 100;}
 
 .login__box {
   width: 30%;

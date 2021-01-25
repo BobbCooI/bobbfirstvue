@@ -1,5 +1,6 @@
 <template>
     <!-- Hero/Home Section -->
+<section id="mainPage">
     <div class="hero" id="home">
       <div class="hero__container">
         <h1 class="hero__heading">Website <span>Bobb's Buddy</span></h1>
@@ -139,12 +140,13 @@
               ><i class="fab fa-twitter"></i
             ></a>
             <a href="/" class="social__icon--link"
-              ><i class="fab fa-discord"></i
+              ><i class="fas fa-discord"></i
             ></a>
           </div>
         </div>
       </section>
     </div>
+  </section>
 </template>
 
 <script>
@@ -157,13 +159,7 @@ export default {
 <style scoped>
 
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Kumbh Sans", sans-serif;
-  scroll-behavior: smooth;
-  }
+#mainPage { box-sizing: border-box;margin: 0;padding: 0;font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;}
   .hidden {
   display: none;
 }
