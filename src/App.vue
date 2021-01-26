@@ -1,13 +1,16 @@
 <template>
+<Load></Load>
 <router-view/>
+
 </template>
 
-<!--<script>
+<script>
+  import Load from './components/Load.vue';
 export default {
   name: 'App',
-
   components: {
-    
+    Load
   }
+  
 }
-</script>-->
+</script>

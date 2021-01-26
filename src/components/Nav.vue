@@ -1,12 +1,13 @@
 <template>
 <nav class="navbar">
       <div class="navbar__container">
-        <a href="kid/bad.html" id="navbar__logo">kid (click me)</a>
+          
+        <a href="kid/bad.html" id="navbar__logo">Yes</a>
         <div class="navbar__toggle" id="mobile-menu" @click=mobileMenu>
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
-        </div>
-        <ul class="navbar__menu">
+  </div>    
+                  <ul class=navbar__menu>
           <li class="navbar__item">         
             <router-link :to="{path: '/', hash: '#home'}" class="navbar__links" id="home-page" @click="log">Home</router-link>
           </li>
@@ -31,10 +32,10 @@
             </ul>
           </li>
           <li class="navbar__btn">
-            <a href="#sign-up" class="button" id="signup">Sign Up</a>
+            <router-link :to="{name: 'loginPage'}" class="button" id="signup">Sign Up</router-link>
           </li>
         </ul>
-      </div>
+  </div>
     </nav>
 </template>
 
@@ -111,11 +112,13 @@ methods: {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Kumbh Sans", sans-serif;
-  scroll-behavior: smooth;
+  font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
 }*/
+
+  
   i {
     margin-left: 6px;
+    font-family: 'Helvetica', sans-serif !important;
   }
   .highlight {
   border-bottom: 4px solid rgb(132, 0, 255);
@@ -124,17 +127,24 @@ methods: {
   display: none;
 }
 .navbar {
-  background: #2b3c4e;
+  background: #34495e;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky !important;
+  position: fixed !important;
   top: 0;
+  width: 100%;
+    font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
+
+
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   z-index: 999;
+  -webkit-box-shadow:0px 2px 2px #2b3c4e;
+ -moz-box-shadow:0px 2px 2px #2b3c4e;
+ box-shadow:0px 2px 2px #2b3c4e;
 }
 
 .navbar__container {
@@ -162,11 +172,13 @@ methods: {
   text-decoration: none;
   font-size: 2rem;
 }
-
+  
 .navbar__menu {
   display: flex;
-  align-items: center;
+ align-items: center;
   list-style: none;
+  justify-content: flex-end;
+  float: right;
 }
 
 .navbar__item {
@@ -174,11 +186,10 @@ methods: {
   border: 2px solid white;
   border-radius: 20px;
   margin: 15px;
-  display: inline-block;
 }
 
 .navbar__links {
-  outline: "none";
+  outline: none;
   background: none;
     border-radius: 20px;
   font-size: 16px;
@@ -238,6 +249,14 @@ methods: {
   color: #85b4ff;
   transition: all 0.3s ease;
 }
+  .navbar__item:hover {
+      border: 3px solid black;
+    transition: all 0.3s ease;
+}
+
+
+
+  
 
 @media screen and (max-width: 960px) {
   .navbar__container {

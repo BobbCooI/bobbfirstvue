@@ -47,16 +47,22 @@
 <script>
   import Nav from '../components/Nav.vue';
 export default {
+  beforeCreate() {
+        document.body.className = 'loginPage';
+    },
   name: "loginPage",
   components: {
     Nav
+  },
+  unmounted() {
+    document.body.classList.remove('loginPage')
   }
 }
 </script>
 
 <style>
   
-.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-height: 100%;background: #34495e !important; z-index: 100;}
+body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-height: 100%;background: #34495e !important; z-index: 100;}
 
 .login__box {
   width: 30%;

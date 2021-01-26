@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   
 <script src="https://kit.fontawesome.com/de4c383839.js" crossorigin="anonymous"></script>
-
+<script src="nprogress.js"></script>
+<link rel="stylesheet" href="nprogress.css"/>
  <link rel="shortcut icon" href="https://cdn.glitch.com/545c6a09-83e2-4c7a-a235-61a147f78bd8%2F6746C0C4-46D5-49BE-BD06-D6FC506F5182.jpeg?v=1611513287059">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
+<style>
+      html {
+    overflow: hidden !important;
+    height: 100%;
+}
+
+body {
+    overflow: auto !important;
+    height: 100%;
+  background: #34495e;
+}
+    html, body {
+    overscroll-behavior: none;
+}  
+  
+      </style>
+      </head>
   <body>
     <noscript>
       <strong

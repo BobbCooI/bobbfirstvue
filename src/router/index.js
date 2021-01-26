@@ -1,19 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import App from '../App.vue';
+/*import Home from "../views/Home.vue";
 import NotFound from "../views/NotFound.vue";
-import Login from '../views/Login.vue';
+import Login from '../views/Login.vue';*/
+import Load from '../components/Load.vue';
 const routes = [
   {
     path: '/',
     name: 'homePage',
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: '/login',
     name: 'loginPage',
-    component: Login
+    component: () => import(/* webpackChunkName: "login" */ "../views/Login.vue")
+
   },
-  { path: "/:catchAll(.*)", name: "NotFound", component: NotFound }
+  { path: "/:catchAll(.*)", name: "NotFound", component: () => import(/* webpackChunkName: "notFound" */  "../views/NotFound.vue") }
 ];
 
 const router = createRouter({
@@ -28,4 +31,16 @@ scrollBehavior (to, from, savedPosition) {
   }
 }
 });
+router.beforeEach((to, from, next)=> {
+  Load.methods.toggleLoad(); 
+  NProgress.start();
+  setTimeout(() =>{
+     Load.methods.toggleLoad(); 
+next();
+}, 2000)
+  
+                  });
+router.afterEach((to, from) => {
+  NProgress.done();
+})
 export default router;
