@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../../db/models/Person.js");
+const users = require("../db/models/Person.js");
 const genID = require("../utils/authkey.js");
 console.log(genID());
 const email = require("../utils/mailer.js");
@@ -20,7 +20,7 @@ router.post('/auth', async (req, res) => {
       })
       .catch(e => console.log(e));
     
-    //await email(req.body.pEmail, "Registration", "Thanks for resgistering bruv").catch(e => console.log(e));
+    await email(req.body.pEmail, "Registration", "Thanks for resgistering bruv").catch(e => console.log(e));
   } else if (keys.includes("usernameCheck")) {
     const user = req.body.pUsername;
     let pos = await users.findOne({ loweruser: user.toLowerCase() });
