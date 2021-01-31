@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
   },
-      chainWebpack: config => {
+     chainWebpack: config => {
         config
             .plugin('html')
             .tap(args => {

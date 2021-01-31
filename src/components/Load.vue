@@ -2,17 +2,13 @@
 <Nav/>
 
   
- <div v-show="!toggleLoad" class="loader">
-   yoakkjdjfjewfj
-  </div>
-<div class="d">
-  hi
+ <div v-show="!loading" class="loader">
   </div>
 </template>
 
 <script>
   import Nav from "./Nav.vue"
-
+ 
 export default {
         data() {  
           return { 

@@ -1,5 +1,5 @@
 <template>
-<Nav/>
+<!--<Nav/>-->
 <Main />
 </template>
 
@@ -11,9 +11,10 @@
 
 
 export default {
+  name: 'homePage',
   components: {
-    Nav,
-    Main
+ //   Nav
+  Main
   }, 
 
 }

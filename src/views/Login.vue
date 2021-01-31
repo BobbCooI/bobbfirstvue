@@ -1,16 +1,14 @@
   <template >
 
-<section id="loginPage">
-        <Nav />
+<div id="authSection">
 
-<form class="login__box" action="....." method="post">
+<form class="auth__box" action="....." method="post">
         <input
           type="button"
           value="Back"
           onclick="history.back()"
           class="back__btn"
-               
-        />
+         />
 
         <h1>Login</h1>
         <input
@@ -36,53 +34,66 @@
         <input id="pSubmit" type="submit" name="pSubmit" value="Login"/>
         <p id="forgot__pass">
           Forgot your password?
-          <a href="http://bobbs-site.glitch.me" id="reset">Reset</a> it!
+          <router-link :to="{name: 'homePage'}" id="reset">Reset</router-link> it!
           <br>
-          Don't have an account? <a href="register.html" id="regiser">Register</a>!
+          Don't have an account? <router-link :to="{name: 'registerPage'}" id="register">Register</router-link>!
         </p>
       </form> 
-    </section>
+    </div>
 </template>
 
 <script>
-  import Nav from '../components/Nav.vue';
+ // import Nav from '../components/Nav.vue';
 export default {
-  beforeCreate() {
-        document.body.className = 'loginPage';
-    },
+  //beforeCreate() { document.body.className = 'loginPage'; },
   name: "loginPage",
   components: {
-    Nav
-  },
-  unmounted() {
-    document.body.classList.remove('loginPage')
+
   }
+  //unmounted() {document.body.classList.remove('loginPage');}
 }
 </script>
 
 <style>
   
-body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-height: 100%;background: #34495e !important; z-index: 100;}
+body {
+  margin: 0;
+  padding: 0; 
+  font-family: sans-serif; 
+  width: 100%;
+  min-height: 100%;
+text-align: center; 
+  margin-top: 80px;
+  }
+  #authSection {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+.auth__box {
+    margin-top: 80px;
 
-.login__box {
-  width: 30%;
+
+  width: 400px;
   padding: 60px;
-  position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+ /* left: 50%;
+  transform: translate(-50%, -50%);*/
   background: #191919;
   text-align: center;
-}
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  }
 
 .back__btn {
-  position: absolute;
-  top: 10px;
-  left: 11px;
- width: 15%; 
+margin-bottom: 20px;
+  width: 20%; 
   text-align: center;
   background: none;
-  border: 0;
   padding: 3px;
   border: 2px solid #555555;
   font-size: 12px;
@@ -91,10 +102,12 @@ body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-
   border-radius: 24px;
 }
 .back__btn:hover {
-  background: #555555;
+  background-color: #555555;
+  background: none;
+  text-align: center;
 }
 
-.login__box h1 {
+.auth__box h1 {
   color: white;
   text-transform: uppercase;
   font-weight: 500;
@@ -107,6 +120,8 @@ body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-
   color: #3498db;
 }
 .inputBox {
+  display: flex;
+  flex-direction: column;
   border: 0;
   background: none;
   display: block;
@@ -135,9 +150,23 @@ body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-
 }
 
 
-.login__box input[type="submit"] {
+#pSubmit  {
   background: none;
-  display: block;
+  text-align: center;
+  margin: 20px auto;
+  border: 2px solid #2ecc71;
+  width: 200px;
+  outline: none;
+  color: white;
+  padding: 14px 40px;
+  border-radius: 24px;
+  transition: 0.25s; 
+  cursor: pointer;
+}
+
+#pSubmit:hover  {
+  background-color: #2ecc71;
+  background: none;
   margin: 20px auto;
   text-align: center;
   border: 2px solid #2ecc71;
@@ -146,23 +175,11 @@ body.loginPage {margin: 0;padding: 0; font-family: sans-serif; width: 100%; min-
   outline: none;
   color: white;
   border-radius: 24px;
-  transition: 0.25s;
+  transition: 0.25s; 
   cursor: pointer;
-}
 
-.login__box input[type="submit"]:hover {
-  background: #2ecc71;
-  background-color: #2ecc71;
-  border-radius: 24px;
-  margin: 20px auto;
-  cursor: pointer;
-  transition: 0.25s;
-  outline: none;
-  border: 2px solid #2ecc71;
-  text-align: center;
-  text-align: center;
-  width: 200px;
-}
+
+  }
 
 .animated {
   -webkit-animation-duration: 1s;

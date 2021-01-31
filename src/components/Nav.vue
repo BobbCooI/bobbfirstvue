@@ -2,19 +2,19 @@
 <nav class="navbar">
       <div class="navbar__container">
           
-        <a href="kid/bad.html" id="navbar__logo">Yes</a>
+       <router-link :to="{name: 'homePage'}" id="navbar__logo">Bobb</router-link>
         <div class="navbar__toggle" id="mobile-menu" @click=mobileMenu>
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
   </div>    
                   <ul class=navbar__menu>
           <li class="navbar__item">         
-            <router-link :to="{path: '/', hash: '#home'}" class="navbar__links" id="home-page" @click="log">Home</router-link>
+            <router-link :to="{name: 'homePage'}" class="navbar__links" id="home-page">Home</router-link>
           </li>
           <li class="navbar__item">
             <a class="navbar__links" href="javascript:void(0)" id="about-page">About <i class="fas fa-angle-down"></i></a>
 
-            <ul class="dropdown">
+            <ul id="about-dropdown" class="dropdown">
               <li>
                  <a class="dropdown-item" >Contact</a>
               <li>   <a class="dropdown-item" >FAQ</a></li>
@@ -25,8 +25,8 @@
         <!--    <router-link :to="{path: '/', hash: '#about'}" class="navbar__links" id="about-page" @click="log">About</router-link>-->
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="services-page" @click="log">Services <i class="fas fa-angle-down"></i></a>
-            <ul class="dropdown">
+            <a class="navbar__links" href="javascript:void(0)" id="services-page">Services <i class="fas fa-angle-down"></i></a>
+            <ul id="services-dropdown" class="dropdown">
              <li><a class="dropdown-item">Anime</a></li> 
             <li>  <a class="dropdown-item" >Discord</a></li>
             </ul>
@@ -43,23 +43,26 @@
   export default {
 
   name: "navBar",
+    data() {
+      return {
+        inDrop: false
+      }
+    },
 methods: {
-  log(event) {
-    console.log('r', window.scrollY, window.scrollX)
-
-  },
    mobileMenu (event) {
   event.target.classList.toggle('is-active');
   document.querySelector(".navbar__menu").classList.toggle('active');
+    
   },
-   highlightMenu () {
+   highlightMenu (event) {
   const elem = document.querySelector('.highlight');
-
- const hero = document.querySelector('.hero'); // to make sure user is in homepage
+  const hero = document.querySelector('.hero'); // to make sure user is in homepage
      if(hero) {
-     const aboutMenu = document.querySelector('#about-page');
-  const servicesMenu = document.querySelector('#services-page');
-         const homeMenu = document.querySelector('#home-page');
+       const aboutMenu = document.querySelector('#about-page');
+       const servicesMenu = document.querySelector('#services-page');
+       const aboutDropdown = document.querySelector('#about-dropdown');
+       const servicesDropdown = document.querySelector('#services-dropdown');
+       const homeMenu = document.querySelector('#home-page');
   let scrollPos = window.scrollY;
   // adds 'highlight' class to my menu items
   if (window.innerWidth > 960 && scrollPos < 600) {
@@ -118,7 +121,6 @@ methods: {
   
   i {
     margin-left: 6px;
-    font-family: 'Helvetica', sans-serif !important;
   }
   .highlight {
   border-bottom: 4px solid rgb(132, 0, 255);
@@ -136,15 +138,13 @@ methods: {
   position: fixed !important;
   top: 0;
   width: 100%;
-    font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
-
-
+  font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   z-index: 999;
   -webkit-box-shadow:0px 2px 2px #2b3c4e;
- -moz-box-shadow:0px 2px 2px #2b3c4e;
- box-shadow:0px 2px 2px #2b3c4e;
+  -moz-box-shadow:0px 2px 2px #2b3c4e;
+  box-shadow:0px 2px 2px #2b3c4e;
 }
 
 .navbar__container {
@@ -161,13 +161,11 @@ methods: {
 #navbar__logo {
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  /* -webkit-text-fill-color: transparent;*/
-  -moz-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
+  background-size: 100%; -webkit-background-clip: text; 
+  -moz-background-clip: text;/* -webkit-text-fill-color: transparent;*/
+  -moz-text-fill-color: transparent; 
+  display: flex; 
+  align-items: center; 
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
@@ -218,7 +216,10 @@ methods: {
   text-decoration: none;
   display: block;
   }
-  .navbar__item:hover .dropdown {display: block;margin-top: 15px;}
+.navbar__item:hover .dropdown {
+   display: block;
+   margin-top: 15px;
+  }
 .navbar__btn {
   display: flex;
   justify-content: center;
@@ -250,9 +251,8 @@ methods: {
   transition: all 0.3s ease;
 }
   .navbar__item:hover {
-      border: 3px solid black;
-    transition: all 0.3s ease;
-}
+      border: 3px solid black;transition: all 0.3s ease;
+    }
 
 
 
@@ -261,17 +261,22 @@ methods: {
 @media screen and (max-width: 960px) {
   .navbar__container {
     display: flex;
-    justify-content: space-between;
+    /*flex-direction: column;*/
+    justify-content: space-between; 
     height: 80px;
     z-index: 1;
     width: 100%;
-    max-width: 1300px;
+   max-width: 1300px;
     padding: 0;
   }
 
   .navbar__menu {
-    display: grid;
-    grid-template-columns: auto;
+  /*  display: grid;
+    grid-template-columns: auto;*/
+    padding-top: 20px;
+    display: flex;
+       justify-content: space-between; align-items: center;
+    flex-direction: column;
     margin: 0;
     width: 100%;
     position: absolute;
@@ -293,6 +298,10 @@ methods: {
 
   #navbar__logo {
     padding-left: 25px;
+    padding-top: 15px;
+    display: block;
+    position: absolute;
+
   }
 
   .navbar__toggle .bar {
@@ -304,14 +313,14 @@ methods: {
   }
 
   .navbar__item {
-    width: 100%;
+  
+    width: 60%;
+    text-align: center;
   }
 
   .navbar__links {
     text-align: center;
-    padding: 2rem;
     width: 100%;
-    display: table;
   }
 
   .navbar__btn {

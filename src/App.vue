@@ -1,15 +1,17 @@
 <template>
-<Load></Load>
+<Nav/>
 <router-view/>
-
+<Footer/>
 </template>
 
 <script>
-  import Load from './components/Load.vue';
+  import Nav from './components/Nav.vue';
+  import Footer from './components/Footer.vue';
 export default {
   name: 'App',
   components: {
-    Load
+    Nav,
+    Footer
   }
   
 }
