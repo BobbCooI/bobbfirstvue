@@ -2,7 +2,7 @@
 
 <div id="authSection">
 
-<form class="auth__box" method="post" @submit="submitCheck" action="/api/auth">
+<form class="auth__box" method="post" @submit="submitCheck" action="javascript:void(0)">
         <input
           type="button"
           value="Back"
@@ -18,6 +18,7 @@
                  placeholder="Email"  
                  title="Please enter a valid email."       
                  class="inputBox"    
+                 ref="emailBox"
                  v-model="pEmail"       
                  autocomplete="on"  
                  required/>
@@ -33,6 +34,9 @@
                class="inputBox"  
                v-model="pUsername"    
                autocomplete="on"  
+               ref="userBox"
+               @invalid="invalidUser"
+               @input="inputCheck"
                @blur="userCheck"
                required/>
         <input
@@ -41,12 +45,14 @@
           name="pPassword"
           placeholder="Password"
           class="inputBox"              
-          autocomplete="on"
+               ref="passBox"
+               autocomplete="on"
           v-model="pPassword"
           required
         />
         <input id="pSubmit" type="submit" name="pSubmit" value="Register"/>
           <br>
+  <div id="notify" ref="errBox">{{error}}</div>
       </form> 
     </div>
 <div>
@@ -56,20 +62,20 @@
 
 <script>
   //import Nav from '../components/Nav.vue';
+import Api from '../services/Api.js';
 
-   const registerBox = document.querySelector('.auth__box');
-  const pUsername = document.querySelector("#pUsername");
-const pPassword = document.querySelector("#pPassword");
-const pEmail = document.querySelector("#pEmail");
 export default {
-  beforeCreate() {document.body.className = 'registerPage'; },
+  beforeCreate() {
+    document.body.className = 'registerPage'; 
+  },
   name: "registerPage",
   data() {
     return {
-      elem: document.createElement("div"),
       pUsername: '',
       pPassword: '',
-      pEmail: ''
+      pEmail: '',
+      errBox: document.querySelector('#notify'),
+      error: ''
     }
   },
   components: {
@@ -77,40 +83,59 @@ export default {
   },
   methods: {
     async userCheck() {
-      
-const data = {
-  usernameCheck: true,
-  pUsername: this.pUsername
-};
-      console.log(data);
-    let req = await fetch("/api/auth", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  }).catch(e => console.log(e));
-  //let res = await req.json();
-      console.log(req)
-/* if (res["exists"]) {
-    this.elem.textContent = `Username "${pUsername.value}" is taken. Try a different one.`;
-    this.elem.className = "error";
-    this.elem.style.display = "block";
-    this.elem.style.background = "#8b0000";
-    this.elem.style.padding = "10px 4px";
-    this.elem.style.color = "#D3D3D3";
-    this.pUsername.style["border-color"] = "red";
-  } else if (!res["exists"]) {
-    pUsername.style["border-color"] = "#2ecc71";
-  }*/
-},
-    submitCheck(event) {
-      registerBox.addEventListener("submit", function(event) {
-  if (pUsername.style["border-color"] === "red") {
-    event.preventDefault();
-    elem.classList.add("animated", "shake");
-  }
-});
-    }
+      if(this.pUsername.length >= 1) {
+        const data = {
+          usernameCheck: true,
+          pUsername: this.pUsername
+        };
+        try {
+          let res = await Api().post('/auth/userCheck', data);
+          if(res.status === 200) this.$refs.userBox.style["border-color"] = "#2ecc71";
+        } catch (e) {
+          this.error = e.response.data.error;
+          this.$refs.errBox.style.display = "block";
+          this.$refs.userBox.style["border-color"] = "red";
+        }
+      }
     },
+    
+    invalidUser() {
+      event.preventDefault();
+      if (!event.target.validity.valid && this.pUsername.length > 0) this.error = "Username should only contain letters and numbers. Example: John123";
+    },
+    
+    inputCheck() {
+      if ("block" === this.$refs.errBox.style.display) {
+        this.$refs.errBox.style.display = "none";
+      }
+      this.$refs.userBox.style["border-color"] = "#3498db";
+    },
+       
+    async submitCheck(event) {
+      if (this.$refs.userBox.style["border-color"] === "red" || this.$refs.errBox.style.display==="block") {
+        event.preventDefault();
+        this.$refs.errBox.classList.add("animated", "shake");
+      } else {
+        let data = {
+          pEmail: this.pEmail, 
+          pUsername: this.pUsername,
+          pPassword: this.pPassword,
+          pSubmit: 'Register'
+        };
+        try {
+          let res = await Api().post('/auth/register', data);
+          pSubmit.disabled= true;
+          this.$router.push({
+             name: 'homePage'
+           })
+        } catch(e) {
+           this.error = e.response.data.error;
+        }
+      }
+    }
+    
+    
+  },
   unmounted() { document.body.classList.remove('registerPage'); }
 }
 </script>

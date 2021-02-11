@@ -1,6 +1,8 @@
 <template>
 <Nav/>
+<div id="container">
 <router-view/>
+  </div>
 <Footer/>
 </template>
 
@@ -13,6 +15,13 @@ export default {
     Nav,
     Footer
   }
-  
 }
 </script>
+
+<style>
+  #container {
+    min-height: 100%;
+overflow: auto;
+    flex-grow: 1;
+  }
+</style>

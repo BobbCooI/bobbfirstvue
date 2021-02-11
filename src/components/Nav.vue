@@ -2,24 +2,24 @@
 <nav class="navbar">
       <div class="navbar__container">
           
-       <router-link :to="{name: 'homePage'}" id="navbar__logo">Bobb</router-link>
+       <router-link :to="{name: 'homePage'}" id="navbar__logo">
+         <img alt="Bobb" src="https://cdn.glitch.com/545c6a09-83e2-4c7a-a235-61a147f78bd8%2F734F1757-795B-4442-9DA0-C2AC93E29183.png?v=1612316577670" width="250" height="75"                                                                   ></router-link>
         <div class="navbar__toggle" id="mobile-menu" @click=mobileMenu>
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
-  </div>    
-                  <ul class=navbar__menu>
+        </div>    
+        <ul class=navbar__menu>
           <li class="navbar__item">         
             <router-link :to="{name: 'homePage'}" class="navbar__links" id="home-page">Home</router-link>
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="about-page">About <i class="fas fa-angle-down"></i></a>
-
+            <a class="navbar__links" href="javascript:void(0)" id="about-page" :class="{'router-link-active': subIsActive(['/faq', '/contact', '/help', '/statistics'])}">About <i class="fas fa-angle-down"></i></a>
             <ul id="about-dropdown" class="dropdown">
               <li>
                  <a class="dropdown-item" >Contact</a>
-              <li>   <a class="dropdown-item" >FAQ</a></li>
+              <li>   <router-link :to="{name: 'FAQpage'}" class="dropdown-item" >FAQ</router-link></li>
             <li>  <a class="dropdown-item" >Help</a></li>
-           <li> <a class="dropdown-item" >Statistics</a></li>
+           <li> <router-link :to="{name: 'statisticsPage'}" class="dropdown-item" >Statistics</router-link></li>
               </li>  
             </ul>
         <!--    <router-link :to="{path: '/', hash: '#about'}" class="navbar__links" id="about-page" @click="log">About</router-link>-->
@@ -27,36 +27,58 @@
           <li class="navbar__item">
             <a class="navbar__links" href="javascript:void(0)" id="services-page">Services <i class="fas fa-angle-down"></i></a>
             <ul id="services-dropdown" class="dropdown">
-             <li><a class="dropdown-item">Anime</a></li> 
-            <li>  <a class="dropdown-item" >Discord</a></li>
+             <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Anime</router-link></li> 
+             <li>  <a class="dropdown-item" >Discord</a></li>
+             <li><router-link class="dropdown-item" :to="{name: 'converterPage'}">Converter</router-link></li> 
             </ul>
           </li>
-          <li class="navbar__btn">
+         <li v-if="loggedIn" class = "navbar__item">
+            <a class="navbar__links" href="javascript:void(0)">Account <i class="fas fa-angle-down"></i></a>
+        <ul id="account-dropdown" class="dropdown">
+          <li><a class="dropdown-item">Profile</a></li>
+          <li><a class="dropdown-item" @click=logout>Logout</a></li>
+        </ul>
+          </li>
+          <li v-else class="navbar__btn">    
             <router-link :to="{name: 'loginPage'}" class="button" id="signup">Sign Up</router-link>
           </li>
         </ul>
   </div>
     </nav>
+
+<Notify v-if="loggedOut" description="Successfully logged out."></Notify>
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+  import Notify from './Notify.vue';
   export default {
 
   name: "navBar",
     data() {
       return {
-        inDrop: false
+        inDrop: false,
+        loggedOut: false
       }
     },
+    components:{Notify},
 methods: {
+      logout () {
+      this.$store.dispatch('setToken', null);
+      this.$store.dispatch('setUser', null);
+        this.loggedOut = true;
+      this.$router.push({
+        name: 'homePage'
+      });
+   },
    mobileMenu (event) {
-  event.target.classList.toggle('is-active');
-  document.querySelector(".navbar__menu").classList.toggle('active');
+     document.querySelector('#mobile-menu').classList.toggle('is-active');
+     document.querySelector(".navbar__menu").classList.toggle('active');
     
   },
    highlightMenu (event) {
-  const elem = document.querySelector('.highlight');
-  const hero = document.querySelector('.hero'); // to make sure user is in homepage
+/*  const elem = document.querySelector('.highlight');
+ const hero = document.querySelector('.hero'); // to make sure user is in homepage
      if(hero) {
        const aboutMenu = document.querySelector('#about-page');
        const servicesMenu = document.querySelector('#services-page');
@@ -85,24 +107,33 @@ methods: {
   if ((elem && window.innerWidth < 960 && scrollPos < 600) || elem) {
     elem.classList.remove('highlight');
   }
-}
-   }
+}*/
+   },
+    subIsActive(input) {
+    const paths = Array.isArray(input) ? input : [input]
+    
+    return paths.some(path => {
+      return this.$route.path.indexOf(path) === 0 // current path starts with this path string
+    })
+    
+  }
 },
+    computed: {
+         ...mapState([
+      'loggedIn',
+      'userInfo'
+    ])
+    },
     
     created() {
-
       window.addEventListener('scroll', this.highlightMenu);   
       window.addEventListener('click', this.highlightMenu);
       
       },
     unmounted() {
-
             window.removeEventListener('scroll', this.highlightMenu);    
       window.removeEventListener('click', this.highlightMenu);
       }
-      
-  
-   
 }
 </script>
 <style >
@@ -118,12 +149,12 @@ methods: {
   font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
 }*/
 
-  
   i {
     margin-left: 6px;
   }
-  .highlight {
-  border-bottom: 4px solid rgb(132, 0, 255);
+ .router-link-exact-active, .highlight, .router-link-active {
+   color: #85b4ff !important;
+    border-bottom: 4px solid #85b4ff !important;
 }
 .hidden {
   display: none;
@@ -142,9 +173,7 @@ methods: {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   z-index: 999;
-  -webkit-box-shadow:0px 2px 2px #2b3c4e;
-  -moz-box-shadow:0px 2px 2px #2b3c4e;
-  box-shadow:0px 2px 2px #2b3c4e;
+  -webkit-box-shadow:0px 2px 2px #2b3c4e;-moz-box-shadow:0px 2px 2px #2b3c4e;box-shadow:0px 2px 2px #2b3c4e;
 }
 
 .navbar__container {
@@ -167,8 +196,9 @@ methods: {
   display: flex; 
   align-items: center; 
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 2rem;
+  border-style: none !important;
 }
   
 .navbar__menu {
@@ -189,7 +219,7 @@ methods: {
 .navbar__links {
   outline: none;
   background: none;
-    border-radius: 20px;
+  border-radius: 20px;
   font-size: 16px;
   color: #fff;
   display: flex;
@@ -348,7 +378,7 @@ methods: {
     cursor: pointer;
   }
 
-  #mobile-menu.is-active .bar:nth-child(2) {
+ #mobile-menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
 
@@ -358,6 +388,6 @@ methods: {
 
   #mobile-menu.is-active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-  }
+  } 
 }
 </style>

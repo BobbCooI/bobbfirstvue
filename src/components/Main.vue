@@ -89,7 +89,8 @@
 </template>
 
 <script>
-
+import {MDCRipple} from '@material/ripple/index';
+const ripple = new MDCRipple(document.querySelector('.services__btn'))
 export default {
   name: 'Main',
 }

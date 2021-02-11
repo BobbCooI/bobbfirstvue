@@ -2,7 +2,7 @@
 
 <div id="authSection">
 
-<form class="auth__box" action="....." method="post">
+<form class="auth__box" action="javascript:void(0)" method="post" @submit="login" autocomplete="off">
         <input
           type="button"
           value="Back"
@@ -15,10 +15,12 @@
           type="text"
           id="pUsername"
           name="pUsername"
+          v-model="pUsername"
           placeholder="Username"
           pattern="[a-zA-Z0-9]+"
           title="Usernames should only have letters a-Z and/or numbers."
           class="inputBox"
+          @input="resetBox"
           autocomplete="on"
           required
         />
@@ -26,31 +28,64 @@
           id="pPassword"
           type="password"
           name="pPassword"
+          v-model="pPassword"
           placeholder="Password"
-          class="inputBox"              
+          class="inputBox"
+          @input="resetBox"
           autocomplete="on"
           required
         />
-        <input id="pSubmit" type="submit" name="pSubmit" value="Login"/>
+        <input id="pSubmit" type="submit" name="pSubmit" value="Login" autocomplete="off"/>
         <p id="forgot__pass">
           Forgot your password?
           <router-link :to="{name: 'homePage'}" id="reset">Reset</router-link> it!
           <br>
-          Don't have an account? <router-link :to="{name: 'registerPage'}" id="register">Register</router-link>!
-        </p>
-      </form> 
+          Don't have an account? <router-link :to="{name: 'registerPage'}" id="registerLink">Register</router-link>!  </p>
+   <br>
+    <div id="notify" ref="errBox">{{error}}</div>
+    </form> 
     </div>
 </template>
 
 <script>
- // import Nav from '../components/Nav.vue';
+  import Api from '../services/Api.js';
 export default {
-  //beforeCreate() { document.body.className = 'loginPage'; },
   name: "loginPage",
-  components: {
-
-  }
-  //unmounted() {document.body.classList.remove('loginPage');}
+  data() {
+    return {
+      pUsername: '',
+      pPassword: '',
+      error: '',
+      }
+  },
+  methods: {
+    async login() {
+      const data = {
+        pUsername: this.pUsername,
+        pPassword: this.pPassword
+      }
+      try {
+      let res = await Api().post('/auth/login', data);
+        pSubmit.disabled = true;
+        setTimeout(() => {
+        this.$store.dispatch('setToken', res.data.token);
+        this.$store.dispatch('setUser', res.data.userInfo);
+        }, 1500)
+        this.$router.push({name: 'homePage'})
+      } catch(e) {
+        this.error = e.response.data.error;
+         pSubmit.disabled = true;
+         document.querySelector("#notify").style.display = "block";
+         setTimeout(() => {
+           pSubmit.disabled = false;
+         }, 2500)
+      }
+    },
+    resetBox() {
+        if ("block" === this.$refs.errBox.style.display) this.$refs.errBox.style.display = "none";
+    }
+  },
+  
 }
 </script>
 
@@ -65,6 +100,13 @@ body {
 text-align: center; 
   margin-top: 80px;
   }
+  #notify {
+    display: none;
+    background: #8b0000;
+    padding: 10px 6px; 
+    color: #D3D3D3;
+    border-color: red;
+  }
   #authSection {
     display: flex;
     text-align: center;
@@ -73,8 +115,6 @@ text-align: center;
   }
 .auth__box {
     margin-top: 80px;
-
-
   width: 400px;
   padding: 60px;
   top: 50%;
