@@ -4,7 +4,9 @@ module.exports = new genericCommand({
   triggers: ["help", "he", "h"],
   usage: "{command} <commandName>",
   bypass: true,
-}, async({Bobb, message, args}) => {
+  cooldown: 3000
+}, async({Bobb, message, args, addCD}) => {
+  addCD()
   if(args[0]) {
   let command = Bobb.cmds.find(c => c.props.triggers.includes(args[0].toLowerCase()));
     if(!command) return "I could not find that command. Try running the `help` command by itself and see a list of commands."

@@ -6,11 +6,15 @@ const userSchema = new mongoose.Schema({
   discTag: {type: String}, // DISCORD
   discID: {type: String}, // DISCORD
   verified: {type: Boolean}, // DISCORD - WEBSITE
+  cmdsRan: {type: Number},
+  lastCmd: {type: Date},
   email: {type: String}, // WEBSITE
   password: {type: String},   // WEBSITE
   UUID: {type: String},   // WEBSITE
   dateCreate: {type: Date}, // WEBSITE
-  spam: {type: Number} // DISCORD
+  cmdSpam: {type: Number} // DISCORD
 });
+
+     
 
 module.exports = mongoose.model('user', userSchema);

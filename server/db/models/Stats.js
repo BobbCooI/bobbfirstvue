@@ -6,7 +6,9 @@ const statSchema = new mongoose.Schema({
   guildsJoined: {type: Number, default: 0},
   guildsLeft: {type: Number, default: 0},
   errReported: {type: Number, default: 0},
-  err: {type: Number, default: 0}
+  err: {type: Number, default: 0},
+  websiteVisits: {type: Number, default: 0},
+  webRequests: {type: Number, default: 0}
 });
 
 module.exports = mongoose.model("botStats", statSchema);

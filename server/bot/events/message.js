@@ -223,7 +223,7 @@ const bypass = command.props.bypass;
   let runner = await this.db.fetchMemberInfo({ discID: message.author.id });
   if (!runner && !bypass && message.channel.type !== "dm")
     return message.channel.send("Please verify in DMs before using commands. ");
-  let cmdSpam = runner ? runner.cmdSpam : 0;
+  let cmdSpam = runner ? runner.spam : 0;
   let latestCmd = runner ? runner.latestCmd : false;
 
   if (cmdSpam > 10500) {
@@ -242,7 +242,7 @@ const bypass = command.props.bypass;
     return;
   }
 
-  updateStats.call(this, message, command, latestCmd);
+ await updateStats.call(this, message, command, latestCmd);
 
   const isInCooldown = await checkCooldowns.call(this, message, command);
   if (isInCooldown) {
@@ -315,7 +315,7 @@ async function updateStats(message, command, lastCmd) {
   if (lastCmd && Date.now() - lastCmd < 500) {
     await this.db.addSpam(message.author.id);
   }
-  this.botStats.findOneAndUpdate(
+ await this.botStats.findOneAndUpdate(
     { _id: "60070be0f12d9e041931de68" },
     { $inc: { commands: 1 } }
   );

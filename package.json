@@ -14,10 +14,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "discord.js": "^12.5.1",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.13",
+    "nodemailer": "^6.4.17",
     "nprogress": "^0.2.0",
     "vue": "^3.0.0-0",
     "vue-router": "^4.0.3"

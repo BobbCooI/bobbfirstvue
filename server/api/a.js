@@ -2,12 +2,15 @@ const express = require("express");
 const router = express.Router();
 const users = require("../db/models/Person.js");
 const genID = require("../utils/authkey.js");
+const Stats = require('../db/models/Stats.js');
 console.log(genID());
 const email = require("../utils/mailer.js");
 router.post('/auth', async (req, res) => {
-  console.log(req.body);
-  let keys = Object.keys(req.body);
-  if (keys.includes("pEmail")) {
+    await Stats.updateOne({_id: "60070be0f12d9e041931de68"}, {$inc: {webRequests: 1}});
+    const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
+  //  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  if (values[3] === "Register") {
    await users
       .create({
         username: req.body.pUsername,
@@ -21,6 +24,8 @@ router.post('/auth', async (req, res) => {
       .catch(e => console.log(e));
     
     await email(req.body.pEmail, "Registration", "Thanks for resgistering bruv").catch(e => console.log(e));
+return res.redirect('https://vuehj23nso.glitch.me')
+
   } else if (keys.includes("usernameCheck")) {
     const user = req.body.pUsername;
     let pos = await users.findOne({ loweruser: user.toLowerCase() });
@@ -37,6 +42,5 @@ router.post('/auth', async (req, res) => {
  
     return res.json({ exists: bool })
   }
-
             })
 module.exports = router;
