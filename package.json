@@ -8,21 +8,30 @@
   "main": "/app/app/app.js",
   "private": true,
   "scripts": {
-    "start": "node a.js",
+    "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "concurrently": "^5.3.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.2",
     "express": "^4.17.1",
-    "mongoose": "^5.11.13",
+    "mongoose": "^5.11.16",
     "nprogress": "^0.2.0",
-    "vue": "^3.0.0-0",
+    "vue": "^3.0.5",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0",
-    "@material/ripple": "^10.0.0"
+    "@material/ripple": "^10.0.0",
+    "@material/button": "^10.0.0",
+    "material-design-icons": "^3.0.1",
+    "@material/theme": "^10.0.0",
+    "@material/tab-bar": "^10.0.0",
+    "@material/tab-indicator": "^10.0.0",
+    "@material/tab": "^10.0.0",
+    "@material/tab-scroller": "^10.0.0",
+    "sass-loader": "^10.1.1",
+    "node-sass": "^5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

@@ -25,3 +25,8 @@ overflow: auto;
     flex-grow: 1;
   }
 </style>
+<style lang="scss">
+  @use "@material/theme" with ($primary: #34495e, $secondary #add8e6);
+  @use "@material/ripple";
+
+</style>

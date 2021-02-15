@@ -1,15 +1,20 @@
 <template>
     <!-- Hero/Home Section -->
-<section id="mainPage">
+<span class="material-icons">
+account_box
+</span><section id="mainPage">
     <div class="hero" id="home">
       <div class="hero__container">
         <h1 class="hero__heading">Website <span>Bobb's Buddy</span></h1>
         <p class="hero__description">bruh</p>
         <img width="200" height="200" src=
-"https://cdn.glitch.com/1ec6aac2-e4bc-4077-ad9d-fd3f4c45d2a5%2Fc4a77ea7-d89a-4f27-bd4b-c042f5f653d8.image.jpeg?v=1610821975373">        <button class="main__btn"><a href="#">button</a></button>
+"https://cdn.glitch.com/1ec6aac2-e4bc-4077-ad9d-fd3f4c45d2a5%2Fc4a77ea7-d89a-4f27-bd4b-c042f5f653d8.image.jpeg?v=1610821975373">     
+        <button @click="log" class="mdc-button main__btn" ontouchstart="">
+  <div class="mdc-button__ripple"></div>
+  <div class="mdc-button__label">Greet</div>
+  </button>
       </div>
     </div>
-
     <!-- About Section -->
     <div class="main" id="about">
       <div class="main__container">
@@ -20,7 +25,10 @@
           <h1>bruh heading 1</h1>
           <h2>heading 2nbrih</h2>
           <p>paragraph bruh</p>
-          <button class="main__btn"><a href="#">button bruh</a></button>
+          <button class="mdc-button main__btn" ontouchstart="">
+  <div class="mdc-button__ripple"></div>
+  <div class="mdc-button__label">Greet</div>
+</button>
         </div>
       </div>
     </div>
@@ -32,22 +40,22 @@
         <div class="services__card">
           <h2>heading 2 bruh</h2>
           <p>paragraph bruh</p>
-          <div class="services__btn"><button>button bruh</button></div>
+          <div class="services__btn"><button class="mdc-button mdc-button__ripple">button bruh</button></div>
         </div>
         <div class="services__card">
           <h2>hruh heading 2</h2>
           <p>paragraph bruh</p>
-          <div class="services__btn"><button>bruh button</button></div>
+          <div class="services__btn"><button class="mdc-button mdc-button__ripple">bruh button</button></div>
         </div>
         <div class="services__card">
           <h2>heading 2 bruh</h2>
           <p>paragraph 2 bruh</p>
-          <div class="services__btn"><button>btn bruh</button></div>
+          <div class="services__btn"><button class="mdc-button mdc-button__ripple">btn bruh</button></div>
         </div>
         <div class="services__card">
           <h2>heading 2 bruh</h2>
           <p>paragraph 2nbruh</p>
-          <div class="services__btn"><button>another button bruh</button></div>
+          <div class="services__btn"><button class="mdc-button mdc-button__ripple">another button bruh</button></div>
         </div>
       </div>
     </div>
@@ -89,20 +97,43 @@
 </template>
 
 <script>
-import {MDCRipple} from '@material/ripple/index';
-const ripple = new MDCRipple(document.querySelector('.services__btn'))
+  import {MDCRipple} from '@material/ripple/index'
 export default {
   name: 'Main',
+  data() {
+    return {
+      ripple: null
+    }
+  },
+  mounted() {
+    this.ripple = [].map.call(document.querySelectorAll('.mdc-button'), function(el) {
+    return new MDCRipple(el);
+});
+    console.log(this.ripple)
+  },
+  methods: {
+    log() {
+      console.log(document.querySelector('.mdc-button'), this.ripple)
+    }
+  }
+  
 }
 </script>
 
-<style scoped>
-
-
-#mainPage { box-sizing: border-box;margin: 0;padding: 0;font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;}
-  .hidden {
+<style >
+  .mdc-button__ripple {
+    ---mdc-theme-primary: #34495e;
+  }
+#mainPage { 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+  scroll-behavior: smooth;
+  }
+.hidden {
   display: none;
-}
+  }
   /* Hero Section */
 .hero {
   background: #000000;
@@ -250,14 +281,15 @@ z-index: 20;}
 
 .main__btn {
   font-size: 1.8rem;
-  background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+ /* background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);*/
+  background: purple;
   padding: 20px 60px;
   border: none;
   border-radius: 4px;
   margin-top: 2rem;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
+ /* overflow: hidden;*/
   outline: none;
 }
 
@@ -473,7 +505,7 @@ btnSpan {
   display: flex;
   justify-content: center;
   margin-top: 16px;
-}
+  }
 
 .services__card button {
   color: #fff;
@@ -484,7 +516,6 @@ btnSpan {
   background: #131313;
   font-size: 1rem;
 }
-
 .services__card button:hover {
   cursor: pointer;
 }

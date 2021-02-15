@@ -10,13 +10,13 @@
         </div>    
         <ul class=navbar__menu>
           <li class="navbar__item">         
-            <router-link :to="{name: 'homePage'}" class="navbar__links" id="home-page">Home</router-link>
+            <router-link :to="{name: 'homePage'}" class="navbar__links" id="home-page" ontouchstart="">Home</router-link>
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="about-page" :class="{'router-link-active': subIsActive(['/faq', '/contact', '/help', '/statistics'])}">About <i class="fas fa-angle-down"></i></a>
+            <a class="navbar__links" href="javascript:void(0)" id="about-page" :class="{'router-link-active': subIsActive(['/faq', '/contact', '/help', '/statistics'])}" ontouchstart="">About <i class="fas fa-angle-down"></i></a>
             <ul id="about-dropdown" class="dropdown">
               <li>
-                 <a class="dropdown-item" >Contact</a>
+                 <router-link :to="{name: 'contactPage'}" class="dropdown-item" >Contact</router-link>
               <li>   <router-link :to="{name: 'FAQpage'}" class="dropdown-item" >FAQ</router-link></li>
             <li>  <a class="dropdown-item" >Help</a></li>
            <li> <router-link :to="{name: 'statisticsPage'}" class="dropdown-item" >Statistics</router-link></li>
@@ -25,7 +25,7 @@
         <!--    <router-link :to="{path: '/', hash: '#about'}" class="navbar__links" id="about-page" @click="log">About</router-link>-->
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="services-page">Services <i class="fas fa-angle-down"></i></a>
+            <a class="navbar__links" href="javascript:void(0)" id="services-page" ontouchstart="">Services <i class="fas fa-angle-down"></i></a>
             <ul id="services-dropdown" class="dropdown">
              <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Anime</router-link></li> 
              <li>  <a class="dropdown-item" >Discord</a></li>
@@ -33,9 +33,9 @@
             </ul>
           </li>
          <li v-if="loggedIn" class = "navbar__item">
-            <a class="navbar__links" href="javascript:void(0)">Account <i class="fas fa-angle-down"></i></a>
+            <a class="navbar__links" href="javascript:void(0)" ontouchstart="">Account <i class="fas fa-angle-down"></i></a>
         <ul id="account-dropdown" class="dropdown">
-          <li><a class="dropdown-item">Profile</a></li>
+          <li><router-link class="dropdown-item" :to="{name: 'profilePage'}">Profile</router-link></li>
           <li><a class="dropdown-item" @click=logout>Logout</a></li>
         </ul>
           </li>

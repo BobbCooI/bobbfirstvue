@@ -7,17 +7,14 @@
 <script>
 // @ is an alias to /src
   import Main from '../components/Main.vue'; 
-  import Nav from '../components/Nav.vue';
 import Api from '../services/Api.js';
 
 export default {
   name: 'homePage',
   components: {
- //   Nav
   Main
   }, 
 async created() {
-  console.log(this.$store.state)
        let count = localStorage.getItem('visitCount');
   if(!count) { 
     localStorage.setItem('visitCount', 1); 

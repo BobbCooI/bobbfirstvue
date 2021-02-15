@@ -4,27 +4,57 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  
+
 <script src="https://kit.fontawesome.com/de4c383839.js" crossorigin="anonymous"></script>
 <script src="nprogress.js"></script>
 <link rel="stylesheet" href="nprogress.css"/>
- <link rel="shortcut icon" href="https://cdn.glitch.com/545c6a09-83e2-4c7a-a235-61a147f78bd8%2F6746C0C4-46D5-49BE-BD06-D6FC506F5182.jpeg?v=1611513287059">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<!-- Required Material Web JavaScript library -->
+   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+
     <title><%= htmlWebpackPlugin.options.title %></title>
 <style>
-      html {
-    height: 100%;
-}
+  /* TO DO -- CUSTOM RIPPLES AND STUFF */
 
-body {
-height: 100%;
-  background: #34495e;
-  padding-top: 70px;
-}
+  html {
+    height: 100%;
+   }
+
+  body {
+    height: 100%;
+    background: #34495e;
+    padding-top: 70px;
+  }
   #app {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('MaterialIcons-Regular'), 
+       url(https://fonts.gstatic.com/s/materialicons/v21/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
       </style>
       </head>
   <body>

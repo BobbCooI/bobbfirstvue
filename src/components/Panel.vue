@@ -1,6 +1,8 @@
 <template>
 <div class="accordion">
-<button class="panel-question" @click="showPanel"><slot name="question">Default Slot</slot></button>
+<button class="panel-question" @click="showPanel">
+  <slot name="question">Default Slot</slot>
+</button>
   <div v-show='isActive' class="panel-answer hidden">
 <slot name="answer">Answer</slot>
   </div>

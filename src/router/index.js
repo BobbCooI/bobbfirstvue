@@ -6,6 +6,7 @@ const NProgress = require("nprogress");
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 
+
 NProgress.configure({ easing: "ease-in-out", parent: ".navbar", speed:300});
 const routes = [
   {
@@ -48,6 +49,16 @@ const routes = [
     path: "/converter",
     name: "converterPage",
     component: () => import(/* webpackChunkName: "converterPage" */ "../views/Converter.vue")
+  },
+  {
+    path: "/contact",
+    name: "contactPage",
+    component: () => import(/* webpackChunkName: "contactPage" */ "../views/Contact.vue")
+  },
+  {
+    path: "/profile",
+    name: "profilePage",
+    component: () => import(/* webpackChunkName: "profilePage" */ "../views/Profile.vue")
   },
 {
     path: "/:catchAll(.*)",
