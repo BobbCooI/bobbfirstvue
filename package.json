@@ -31,7 +31,13 @@
     "@material/tab": "^10.0.0",
     "@material/tab-scroller": "^10.0.0",
     "sass-loader": "^10.1.1",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "vuetify": "^2.4.3",
+    "material-components-web": "^10.0.0",
+    "vue-material": "^1.0.0",
+    "@material/menu": "^10.0.0",
+    "@material/menu-surface": "^10.0.0",
+    "@material/typography": "^10.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

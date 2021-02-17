@@ -1,7 +1,6 @@
 <template>
 <title>Bobb's Contact</title>
-<div class="yo__i">
-  Hi
+<div>
   </div>
 </template>
 

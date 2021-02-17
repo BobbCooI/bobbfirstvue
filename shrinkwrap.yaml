@@ -1,22 +1,28 @@
 dependencies:
   '@material/button': 10.0.0
+  '@material/menu': 10.0.0
+  '@material/menu-surface': 10.0.0
   '@material/ripple': 10.0.0
   '@material/tab': 10.0.0
   '@material/tab-bar': 10.0.0
   '@material/tab-indicator': 10.0.0
   '@material/tab-scroller': 10.0.0
   '@material/theme': 10.0.0
+  '@material/typography': 10.0.0
   axios: 0.21.1
   concurrently: 5.3.0
   core-js: 3.8.3
   express: 4.17.1
+  material-components-web: 10.0.0
   material-design-icons: 3.0.1
   mongoose: 5.11.16
   node-sass: 5.0.0
   nprogress: 0.2.0
   sass-loader: 10.1.1
   vue: 3.0.5
+  vue-material: 1.0.0
   vue-router: 4.0.3
+  vuetify: 2.4.4
   vuex: 4.0.0
 devDependencies:
   '@vue/cli-plugin-babel': 4.5.11
@@ -1089,6 +1095,28 @@ packages:
     dev: false
     resolution:
       integrity: sha512-5e8e+W+n105rfSTRI5Mfmh9VMqzNG8+OhxjfDr7k0lYCfjbkT8LsAInonC5EotJzcaxD0vtDUqRqdW8xKIXNWg==
+  /@material/auto-init/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-Deawx+0P7D7A6kCeYcG40sM+pi3O1qAp838fu16Rupy6ZdZ4z3fXQbcHXq4ZQNysRxIdC6S7DjJ/VI340HI+mA==
+  /@material/banner/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/button': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-USIk8WIFHLGafjxTsMjNJf8AsRdAvI+XZjEKkPwvpqgFcBLgDa7rRVO8YsgnXUdcqq3hitAo+w1NbNMU2pogDg==
   /@material/base/10.0.0:
     dependencies:
       tslib: 1.14.1
@@ -1110,10 +1138,108 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OHIJtlyM+U+MqvPm0N0y9kHf+SFS0I7zE520MulQJywgZhHmU+mz2kwgy+tVxOTceVglQzRZP3KkrwUkf4U0bg==
+  /@material/card/10.0.0:
+    dependencies:
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+    dev: false
+    resolution:
+      integrity: sha512-IwdmUdrMDKb27K6xUhRSafPNbrAmcrPSxM3E8ad1Hk55+9O8Tl9SnGfOQGNtocGa8O7qFr8jsiqdIrxJN85VEA==
+  /@material/checkbox/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-aZc8KLo+yT15tnEpJWBvqJhUFEVqAKs56DGC8PaKfwfJJMVS0D4Hek61cpl4Jthv6j5eduvpiZ/2DRE8D530Hg==
+  /@material/chips/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/checkbox': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-K3FQaN/Y7nlgVtTyZjWOD88Q+5VkNJBUwx0Jv9gONuRjDnelGNbTnzVe1/ESAFVK7fRSoQsEdSM8DVKsjrjyVw==
+  /@material/circular-progress/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/progress-indicator': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-lb76jzi10OmsVN2XhLhEZpWBilx0TMCZESQ7fIub4FQuSwBucz7Wn/+d5goRkotrOKWzh2HvJ/vnpku5up/a1A==
+  /@material/data-table/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/checkbox': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/icon-button': 10.0.0
+      '@material/linear-progress': 10.0.0
+      '@material/list': 10.0.0
+      '@material/menu': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/select': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-6zmqZk1EkmyjTW4SK/HC2SJX2LsNEKYAjrlEU9XZKEJCA381Z3+YJNrePNHbK9JEZYtGH4yq7Yu8kH5FlBJa9A==
   /@material/density/10.0.0:
     dev: false
     resolution:
       integrity: sha512-nLf8N5e6tEYo+W762z3coTDl2b1FFKJv/uU+E5UsBYOL0ftXrOMtiYSwg9MJjfWtdG+uUBfb3VLcBvIl2x3C0w==
+  /@material/dialog/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/button': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/icon-button': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-vAupxjKxP9iMCmFCkE0PuLCrePdBqdOvJBTv++JP1v+t/Vu+5FLu6rHYIWKwTivqrIgSrLS2L0Lyc1VlJzQqLg==
   /@material/dom/10.0.0:
     dependencies:
       '@material/feature-targeting': 10.0.0
@@ -1121,6 +1247,23 @@ packages:
     dev: false
     resolution:
       integrity: sha512-rimaFIRsbacSjnk/1IqQZLOjoIWYhmuR6AZR35nkeAYg0H3DmLuNTGyAgsMaC8O/1vBcAp+c4N9WASkITCOE5A==
+  /@material/drawer/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/list': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-x2B8Cqz8x3ecXU4gkFCZBzWNKC5q+oDc73dce/rPNoR87ndzLhMcu6P7mD/tBaNBJHypfQk1SBkbFrMYHAfncg==
   /@material/elevation/10.0.0:
     dependencies:
       '@material/animation': 10.0.0
@@ -1130,10 +1273,172 @@ packages:
     dev: false
     resolution:
       integrity: sha512-D/CeTIkRmV9iLJDzUnKSt2FTM7SLv3ixQjindNaAEAaCdsaoUfx6Q2dRAlqQOL0y6yeTvvpxK9IFwu411J3xXw==
+  /@material/fab/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+    dev: false
+    resolution:
+      integrity: sha512-TR+xGD0fjwyP9/E0XkXkmHBhzgsgYLEOp/uMf0GRoSXlDypU9E83oh3ZH8w4u2MrHfSM65xB3tMHchSNzXkb2Q==
   /@material/feature-targeting/10.0.0:
     dev: false
     resolution:
       integrity: sha512-Pn48jeeD2ScMq0NoR0k9SeC3UFOOTarKNIYxL+TkFRLGks/TgFoSIDRwXCzva/9umw9/Q2xOWrY/Gqs1zBIgOA==
+  /@material/floating-label/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-np5ETpkZiv4WkgO9b4PKM9oWnuMaF7smxPx0ef4xvwj1jfj7z40OSV85p+3xVp9fJ6UkiDQBqqB+5xquf/o++w==
+  /@material/form-field/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-OP4SiWVClIfNZYOUzuJpkY67ZRXTm2N4KF1xtfE7aN5mBjJfzrJkhjZ7wrfeWIDx4noGtGDn4wb8ui3kBk87KQ==
+  /@material/icon-button/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-e7oQq2LlUA+UGGzlgvityPV+bTRJ7sFs8grlwM0C86adXzc/6nYBNmmgcqUpQDiCtBj5Dqo8oQSUVGRkHIqEiQ==
+  /@material/image-list/10.0.0:
+    dependencies:
+      '@material/feature-targeting': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+    dev: false
+    resolution:
+      integrity: sha512-7DZkZNCTsxDsiISAEv7DkxP99On4cG+kMUMjf475K2hjJ1JtilOg27PoV2RTWp7umIk34TifD4ydEqDvQ3q8pQ==
+  /@material/layout-grid/10.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-r6MydDwpGwawgEBjENrp7699r+ioGpUd/ntAfrYxeVqRT43Qkoa6/VHLYHDubv+RlaG130PQ5ipNPkCgqHURMw==
+  /@material/line-ripple/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-68Kn1cs2T0GWRdAfdtoDz5grROVeGtS9WSYe0kCDsoXFmHEjGhxVZfIT3E6as6NcrP7haLPJEV6ACg4tvzr8uQ==
+  /@material/linear-progress/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/progress-indicator': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-RjfVNRCbhEeyIw5MSb9PNH7Xuhn6af90ksfjmABjYHkTFVhSDdJMrDCOD6gdH8UE5vGDIulS+ZMgIy4pQOmnxA==
+  /@material/list/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-LYNntZbyu4ByJphtg3sGxYiwGdt+Lr2jZZLaOk4Xr8v98xDEW96yjB7CjSGh7HI//snJ9PN0QmEfTJ9kavswLw==
+  /@material/menu-surface/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-YH/FYlUSmKZoEDtPA+EpV+WQy9caLsa3O+K9MnVq5hpUcg/ezKUa8hP59de+3ubP5Vex60OyVtRs9A/btb64PA==
+  /@material/menu/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/list': 10.0.0
+      '@material/menu-surface': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-UvutTmhENZc7j1XO14bL/jj0CFQV//8FiQT8hqnZ2/bisX4dyVkwJcs/iSj7ZumQ9KSqn62XMP+DiOothz55Ew==
+  /@material/notched-outline/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/floating-label': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-SgiLTX2Wy15EAVl6eve+5ruBpnmkN3BclB/6RARvswld6uXhJ4HFSM01sztg4QPhCDehyqNIZvo/LdtyK+99vg==
+  /@material/progress-indicator/10.0.0:
+    dependencies:
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-s0IXhhyBBlfXoaN7WKKpsiw4qtG29JXTVhj0/IR2QdDx82QOTxYlQkclqBBlkr+H40LKmEYN7dUWJVWJf8QlMw==
+  /@material/radio/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-Lvjfz0NjmwvZ4vvi2aCNQdrvdbFuTsVDjrWCHJgeR7kBLOYM7g8li7G6EpD6GgcMvSCysQ4IljCXUVIimnFoCg==
   /@material/ripple/10.0.0:
     dependencies:
       '@material/animation': 10.0.0
@@ -1151,6 +1456,40 @@ packages:
     dev: false
     resolution:
       integrity: sha512-887Dq0JrlRx5uwQ2Ku4Gig0e7iMIdKAAvvk/Wnglo9jFUvJE94rgSyyDLbwsN4vo1s33PwxHK1uWteALkzMQWw==
+  /@material/segmented-button/10.0.0:
+    dependencies:
+      '@material/base': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+    dev: false
+    resolution:
+      integrity: sha512-98+1Wny1yPJWNkhqPgvKPQtOlxlIXMvB0XHegO51G3JnDWDcyay+JzumDJAlwX3yuhekQ61oQDfEPUb7bZOR3g==
+  /@material/select/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/floating-label': 10.0.0
+      '@material/line-ripple': 10.0.0
+      '@material/list': 10.0.0
+      '@material/menu': 10.0.0
+      '@material/menu-surface': 10.0.0
+      '@material/notched-outline': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-1K39WyPpD7cMS1GBNYvQ+o6uBldy3rilqwiBV9zQHIIcAIk9SN7e++siKxbSYGq2/aeMX0sdQDkbGZhEGXupGQ==
   /@material/shape/10.0.0:
     dependencies:
       '@material/feature-targeting': 10.0.0
@@ -1159,6 +1498,54 @@ packages:
     dev: false
     resolution:
       integrity: sha512-2zUib2htoZz21ULa9lNd4llGOWlZcGLBKKJdNV6wsyPlqdh6SjEXf3Fz1BrWV6pQVW3fhnhn+oTFLMveV1mMZw==
+  /@material/slider/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-RsCPCk/dWba0W1LxRCALM9iVQtww2wgEZM7P/erQQyNKHDCR9CPNrCW5Y9HUhtzr+j3RaFqkSGDzJ1+WpIOQ5g==
+  /@material/snackbar/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/button': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/icon-button': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-Cp/OpLZm6ze+/jxpyf2D1jUNvdyhn3MhYcH1EWUyJowJk0wc0DOvWWgrZcVmyqTCROJUmTlL+l35EQ3f7rkjxQ==
+  /@material/switch/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/theme': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-2UZgof9g52fJOsGgftnmb66WC/yyESZssvbxhLkUVIwGTephz7KXfRWPvoBWBEC2Gwk5FW2Btq3nw5uRKPNj1A==
   /@material/tab-bar/10.0.0:
     dependencies:
       '@material/animation': 10.0.0
@@ -1205,12 +1592,60 @@ packages:
     dev: false
     resolution:
       integrity: sha512-+NdLlk3japU7I7Ar6ZrihQKxZdk8mIkRv8fXoRZ0KjvHyi6y5tYT++tMHDCzvdzWm24z9Du3aiup1QIsKaI24Q==
+  /@material/textfield/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/floating-label': 10.0.0
+      '@material/line-ripple': 10.0.0
+      '@material/notched-outline': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-EqqG1c8J8pGTBV3ogXlEi3ZxGuG8qAGYw9Z3QI+r3FvYvrX4qp9Xl1ifDRweVF18eJ28DINXqBdL7XNmnCaZpw==
   /@material/theme/10.0.0:
     dependencies:
       '@material/feature-targeting': 10.0.0
     dev: false
     resolution:
       integrity: sha512-ll5UFjPR6np4jgTzDQO85VQg6FgLM0Vy1MlyJVRr/kn+2adX5hDxiBOnuC9fTeVhIBBPjbAMOFPa6VhNmAmkvg==
+  /@material/tooltip/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-sH0c9ERNGZe+QaxRNQIFczKNu2y4IbDsuhb5MalY0XZ6jurpdm/1UxEBvrhquXkUUebJ0tPzbOJ214+LJVSh5A==
+  /@material/top-app-bar/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/base': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/typography': 10.0.0
+      tslib: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-9UKxshyQw/FYX+V5qpsNcyU+4Z+3bvxa415jZkorq+ffoaIzKjc30zBGYcpQSAs2wwobiSp5srMmrTuU/x9k7A==
   /@material/touch-target/10.0.0:
     dependencies:
       '@material/base': 10.0.0
@@ -3401,6 +3836,10 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
+  /date-fns/1.30.1:
+    dev: false
+    resolution:
+      integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
   /date-fns/2.16.1:
     dev: false
     engines:
@@ -3460,6 +3899,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==
+  /deepmerge/2.2.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
   /default-gateway/4.2.0:
     dependencies:
       execa: 1.0.0
@@ -4298,6 +4743,10 @@ packages:
   /function-bind/1.1.1:
     resolution:
       integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
+  /fuzzysearch/1.0.3:
+    dev: false
+    resolution:
+      integrity: sha1-3/yA9tawQiPyImqnndGUIxCW0Ag=
   /gauge/2.7.4:
     dependencies:
       aproba: 1.2.0
@@ -5192,6 +5641,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
+  /is-promise/2.2.2:
+    dev: false
+    resolution:
+      integrity: sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==
   /is-regex/1.1.1:
     dependencies:
       has-symbols: 1.0.1
@@ -5648,6 +6101,58 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
+  /material-components-web/10.0.0:
+    dependencies:
+      '@material/animation': 10.0.0
+      '@material/auto-init': 10.0.0
+      '@material/banner': 10.0.0
+      '@material/base': 10.0.0
+      '@material/button': 10.0.0
+      '@material/card': 10.0.0
+      '@material/checkbox': 10.0.0
+      '@material/chips': 10.0.0
+      '@material/circular-progress': 10.0.0
+      '@material/data-table': 10.0.0
+      '@material/density': 10.0.0
+      '@material/dialog': 10.0.0
+      '@material/dom': 10.0.0
+      '@material/drawer': 10.0.0
+      '@material/elevation': 10.0.0
+      '@material/fab': 10.0.0
+      '@material/feature-targeting': 10.0.0
+      '@material/floating-label': 10.0.0
+      '@material/form-field': 10.0.0
+      '@material/icon-button': 10.0.0
+      '@material/image-list': 10.0.0
+      '@material/layout-grid': 10.0.0
+      '@material/line-ripple': 10.0.0
+      '@material/linear-progress': 10.0.0
+      '@material/list': 10.0.0
+      '@material/menu': 10.0.0
+      '@material/menu-surface': 10.0.0
+      '@material/notched-outline': 10.0.0
+      '@material/radio': 10.0.0
+      '@material/ripple': 10.0.0
+      '@material/rtl': 10.0.0
+      '@material/segmented-button': 10.0.0
+      '@material/select': 10.0.0
+      '@material/shape': 10.0.0
+      '@material/slider': 10.0.0
+      '@material/snackbar': 10.0.0
+      '@material/switch': 10.0.0
+      '@material/tab': 10.0.0
+      '@material/tab-bar': 10.0.0
+      '@material/tab-indicator': 10.0.0
+      '@material/tab-scroller': 10.0.0
+      '@material/textfield': 10.0.0
+      '@material/theme': 10.0.0
+      '@material/tooltip': 10.0.0
+      '@material/top-app-bar': 10.0.0
+      '@material/touch-target': 10.0.0
+      '@material/typography': 10.0.0
+    dev: false
+    resolution:
+      integrity: sha512-8zRnmPyZmpD3zKImMCbMrvGx7IwOutGPTrrNNLNEcrmEXCoBVGoorc+6gyvs2bugScgZmLf/nLAXlYlHel7PYQ==
   /material-design-icons/3.0.1:
     dev: false
     resolution:
@@ -6693,6 +7198,11 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
+  /popper.js/1.16.1:
+    deprecated: 'You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1'
+    dev: false
+    resolution:
+      integrity: sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
   /portfinder/1.0.28:
     dependencies:
       async: 2.6.3
@@ -7230,6 +7740,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
+  /raf/3.4.1:
+    dependencies:
+      performance-now: 2.1.0
+    dev: false
+    resolution:
+      integrity: sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
   /randombytes/2.1.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -8784,6 +9300,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+  /vue-ga/1.1.0:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-cnwIW75CwsqGZP62dFZt7e4/k9vhKsos3pJBBKkREXJ4bk2ePVgJiOeynhjvAtvyRzEmfsASfYMwzt0Dra/cng==
   /vue-hot-reload-api/2.3.4:
     dev: true
     resolution:
@@ -8812,6 +9334,22 @@ packages:
     dev: true
     resolution:
       integrity: sha512-8QTxh+Fd+HB6fiL52iEVLKqE9N1JSlMXLR92Ijm6g8PZrwIxckgpqjPDWRP5TWxdiPaHR+alUWsnu1ShQOwt+Q==
+  /vue-material/1.0.0:
+    dependencies:
+      date-fns: 1.30.1
+      deepmerge: 2.2.1
+      fuzzysearch: 1.0.3
+      is-promise: 2.2.2
+      popper.js: 1.16.1
+      raf: 3.4.1
+      vue: 2.6.12
+      vue-ga: 1.1.0
+    dev: false
+    engines:
+      node: '>= 7.0'
+    requiresBuild: true
+    resolution:
+      integrity: sha512-av/oUNRms4spyb+rT+GEOV232SLfqpI2pj53eZe/+Q/jQLQ/X+T/BS4UijfSa7STzxDJ9jfwVc9ncECxVgNhjw==
   /vue-router/4.0.3:
     dev: false
     peerDependencies:
@@ -8829,6 +9367,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+  /vue/2.6.12:
+    dev: false
+    resolution:
+      integrity: sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
   /vue/3.0.5:
     dependencies:
       '@vue/compiler-dom': 3.0.5
@@ -8837,6 +9379,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-TfaprOmtsAfhQau7WsomXZ8d9op/dkQLNIq8qPV3A0Vxs6GR5E+c1rfJS1SDkXRQj+dFyfnec7+U0Be1huiScg==
+  /vuetify/2.4.4:
+    dev: false
+    peerDependencies:
+      vue: ^2.6.4
+    resolution:
+      integrity: sha512-/4+xX9XbcwXBjrtptDxm5S4NXVaVGF8UJ3U7Nk20fl4aM84PGgGyqVCfi8hVa8t1gd+2Wz4FCztbR7JgJcBIQQ==
   /vuex/4.0.0:
     dev: false
     peerDependencies:
@@ -9172,12 +9720,15 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@material/button': ^10.0.0
+  '@material/menu': ^10.0.0
+  '@material/menu-surface': ^10.0.0
   '@material/ripple': ^10.0.0
   '@material/tab': ^10.0.0
   '@material/tab-bar': ^10.0.0
   '@material/tab-indicator': ^10.0.0
   '@material/tab-scroller': ^10.0.0
   '@material/theme': ^10.0.0
+  '@material/typography': ^10.0.0
   '@vue/cli-plugin-babel': ~4.5.0
   '@vue/cli-plugin-router': ~4.5.0
   '@vue/cli-service': ~4.5.0
@@ -9186,11 +9737,14 @@ specifiers:
   concurrently: ^5.3.0
   core-js: ^3.8.2
   express: ^4.17.1
+  material-components-web: ^10.0.0
   material-design-icons: ^3.0.1
   mongoose: ^5.11.16
   node-sass: ^5.0.0
   nprogress: ^0.2.0
   sass-loader: ^10.1.1
   vue: ^3.0.5
+  vue-material: ^1.0.0
   vue-router: ^4.0.3
+  vuetify: ^2.4.3
   vuex: ^4.0.0

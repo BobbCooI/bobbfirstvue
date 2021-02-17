@@ -9,6 +9,7 @@
 <script>
   import Nav from './components/Nav.vue';
   import Footer from './components/Footer.vue';
+  
 export default {
   name: 'App',
   components: {
@@ -18,15 +19,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  :root {
+    --mdc-theme-primary: #6391bf;
+    --mcd-theme-secondary: #88add1;
+    --mdc-theme-on-primary: #ffffff;
+    --mdc-theme-on-secondary: #dfe5eb;
+    --mdc-theme-surface: #ffffff;
+    --mdc-theme-background: #ffffff;
+   }
   #container {
     min-height: 100%;
-overflow: auto;
+    overflow: auto;
     flex-grow: 1;
-  }
-</style>
-<style lang="scss">
-  @use "@material/theme" with ($primary: #34495e, $secondary #add8e6);
-  @use "@material/ripple";
-
+   }
 </style>

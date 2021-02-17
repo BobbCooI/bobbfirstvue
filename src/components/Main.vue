@@ -1,17 +1,15 @@
 <template>
     <!-- Hero/Home Section -->
-<span class="material-icons">
-account_box
-</span><section id="mainPage">
+<section id="mainPage">
     <div class="hero" id="home">
       <div class="hero__container">
         <h1 class="hero__heading">Website <span>Bobb's Buddy</span></h1>
         <p class="hero__description">bruh</p>
         <img width="200" height="200" src=
 "https://cdn.glitch.com/1ec6aac2-e4bc-4077-ad9d-fd3f4c45d2a5%2Fc4a77ea7-d89a-4f27-bd4b-c042f5f653d8.image.jpeg?v=1610821975373">     
-        <button @click="log" class="mdc-button main__btn" ontouchstart="">
+        <button class="mdc-button main__btn" ontouchstart="">
   <div class="mdc-button__ripple"></div>
-  <div class="mdc-button__label">Greet</div>
+  <div class="mdc-button__label">Ripppple</div>
   </button>
       </div>
     </div>
@@ -27,7 +25,7 @@ account_box
           <p>paragraph bruh</p>
           <button class="mdc-button main__btn" ontouchstart="">
   <div class="mdc-button__ripple"></div>
-  <div class="mdc-button__label">Greet</div>
+  <div class="mdc-button__label">Ripple</div>
 </button>
         </div>
       </div>
@@ -83,7 +81,7 @@ account_box
         <div class="extras__container">
           <div class="extras__content">
             <h1>
-              🧑🏻‍🍳
+              🧑🍳 Image
             </h1>
           </div>
           <div class="extras__img-container">
@@ -106,23 +104,14 @@ export default {
     }
   },
   mounted() {
-    this.ripple = [].map.call(document.querySelectorAll('.mdc-button'), function(el) {
-    return new MDCRipple(el);
-});
-    console.log(this.ripple)
-  },
-  methods: {
-    log() {
-      console.log(document.querySelector('.mdc-button'), this.ripple)
-    }
+    this.ripple = [].map.call(document.querySelectorAll('.mdc-button'), el => new MDCRipple(el));
   }
-  
 }
 </script>
 
 <style >
   .mdc-button__ripple {
-    ---mdc-theme-primary: #34495e;
+    ---mdc-theme-surface: #34495e;
   }
 #mainPage { 
   box-sizing: border-box;

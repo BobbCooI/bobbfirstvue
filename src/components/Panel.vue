@@ -1,7 +1,7 @@
 <template>
 <div class="accordion">
 <button class="panel-question" @click="showPanel">
-  <slot name="question">Default Slot</slot>
+  <slot class="question-text" name="question">Default Slot</slot>
 </button>
   <div v-show='isActive' class="panel-answer hidden">
 <slot name="answer">Answer</slot>
@@ -62,7 +62,10 @@ export default {
     -moz-box-shadow:2px 2px 2px #2b3c4e;
     box-shadow:2px 2px 2px #2b3c4e;
 	}
-
+  .question-text {
+    text-align: center;
+    margin-top: 5px;
+  }
 		/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active {
 		background-color: #52a6de;

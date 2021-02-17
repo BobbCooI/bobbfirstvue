@@ -1,7 +1,7 @@
 <template>
 <Accordion paddingTop="50">
     <Panel> 
-      <template v-slot:question>Anime 1</template> 
+      <template v-slot:question>Video Test</template> 
       <template v-slot:answer><router-link :to="{name: 'watchPage', params: {id: 1}}">Here!</router-link></template>
     </Panel>
   </Accordion>

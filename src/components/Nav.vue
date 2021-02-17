@@ -27,7 +27,7 @@
           <li class="navbar__item">
             <a class="navbar__links" href="javascript:void(0)" id="services-page" ontouchstart="">Services <i class="fas fa-angle-down"></i></a>
             <ul id="services-dropdown" class="dropdown">
-             <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Anime</router-link></li> 
+             <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Vid</router-link></li> 
              <li>  <a class="dropdown-item" >Discord</a></li>
              <li><router-link class="dropdown-item" :to="{name: 'converterPage'}">Converter</router-link></li> 
             </ul>

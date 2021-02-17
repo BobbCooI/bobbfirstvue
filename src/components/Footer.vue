@@ -4,12 +4,12 @@
     <div class="footer__links">
       <div class="footer__link--wrapper">
         <div class="footer__link--items">
-          <h2>About Us</h2>
+          <h2>WORK IN PROGRESS FOOTER</h2>
           <a href="signup/login.html">Signup</a> <a href="/">Testimonials</a>
           <a href="/">Careers</a> <a href="/">Terms of Service</a>
         </div>
         <div class="footer__link--items">
-          <h2>Contact Us</h2>
+          <h2>WORK IN PROGRESS FOOTER</h2>
           <a href="/">Contact</a> <a href="/">Support</a>
           <a href="/">Stuff Bruh</a>
         </div>
