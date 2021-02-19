@@ -5,7 +5,7 @@
   "name": "vue-site",
   "version": "1.0.0",
   "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "/app/app/app.js",
+  "main": "/src/main.js",
   "private": true,
   "scripts": {
     "start": "npm run serve",
@@ -17,7 +17,7 @@
     "concurrently": "^5.3.0",
     "core-js": "^3.8.2",
     "express": "^4.17.1",
-    "mongoose": "^5.11.16",
+    "mongoose": "^5.11.17",
     "nprogress": "^0.2.0",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",

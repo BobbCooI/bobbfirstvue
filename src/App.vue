@@ -3,23 +3,22 @@
 <div id="container">
 <router-view/>
   </div>
-<Footer/>
+<newF/>
 </template>
 
 <script>
   import Nav from './components/Nav.vue';
-  import Footer from './components/Footer.vue';
-  
+  import newF from './components/newF.vue';
 export default {
   name: 'App',
   components: {
     Nav,
-    Footer
+    newF
   }
 }
 </script>
 
-<style lang="scss">
+<style>
   :root {
     --mdc-theme-primary: #6391bf;
     --mcd-theme-secondary: #88add1;
@@ -29,7 +28,7 @@ export default {
     --mdc-theme-background: #ffffff;
    }
   #container {
-    min-height: 100%;
+    height: 100%;
     overflow: auto;
     flex-grow: 1;
    }

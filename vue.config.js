@@ -11,7 +11,7 @@ module.exports = {
                 return args;
             })
     },
-  css: {
+ /* css: {
     loaderOptions: {
   
       sass: {
@@ -32,5 +32,5 @@ module.exports = {
       // load which style file you want to import globally
       patterns: [path.resolve(__dirname, './src/_variables.scss')],
     },
-  }
+  }*/
 };

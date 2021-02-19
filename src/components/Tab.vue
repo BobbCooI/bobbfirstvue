@@ -1,5 +1,5 @@
 <template>
-  <button class="mdc-tab mdc-theme--on-primary" role="tab" aria-selected="false" :tabindex="tabIndex">
+  <button class="mdc-tab" role="tab" aria-selected="false" :tabindex="tabIndex">
      <span class="mdc-tab__content">
         <span class="mdc-tab__icon material-icons" aria-hidden="true"></span>
         <span class="mdc-tab__text-label"><slot></slot></span>

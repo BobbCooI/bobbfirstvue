@@ -1,19 +1,6 @@
-# modal-project
 
-## Project setup
+## Bobb's First Vue Site
 ```
-npm install
+Coded by only Bobb.
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Thanks

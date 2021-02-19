@@ -1,5 +1,5 @@
 <template>
-<div class="accordion">
+<div class="panel">
 <button class="panel-question" @click="showPanel">
   <slot class="question-text" name="question">Default Slot</slot>
 </button>
@@ -43,16 +43,16 @@ export default {
 </script>
 <style>
 /* Style the buttons that are used to open and close the accordion panel */
-  .accordion {
+  .panel {
     padding-bottom: 10px;
   }
 	.panel-question {
 		background-color: #144261;
-    border-radius: 30px;
+    border-radius: 20px;
 	  color: #FFF;
 		cursor: pointer;
 		padding: 14px;
-		width: 70%;
+		width: 60%;
 		text-align: left;
 		outline: none;
     transition: 0.4s;
@@ -81,7 +81,7 @@ export default {
 		padding: 0 14px;
     background: none;
     max-height: 0;
-    width: 70%;
+    width: 60%;
 		overflow: hidden;
 		transition: max-height 0.2s ease-out;
     margin-top: 15px;

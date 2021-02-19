@@ -1,5 +1,5 @@
 <template>
-<i class="fas fa-chevron-left scroll-button scroll-right inline"></i>
+<i class="fas fa-chevron-left scroll-button scroll-right inline" @click="scroll(true, false)"></i>
 <div class="mdc-tab-bar inline" role="tablist">
   <div class="mdc-tab-scroller">
     <div class="mdc-tab-scroller__scroll-area">
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-</div><i class="fas fa-chevron-right scroll-button scroll-right inline"></i>
+</div><i class="fas fa-chevron-right scroll-button scroll-right inline" @click="scroll(false, true)"></i>
    <div class="bb-tab__content bb-tab__content--active"><slot name="firstContent"></slot></div>
   <slot name="otherTabContent"></slot>
 </template>
@@ -29,8 +29,29 @@ import {MDCTabBar} from '@material/tab-bar';
    export default {
      data() {
        return {
-         tabBar: null
+         tabBar: null,
        }
+     },
+     methods: {
+       scroll(left=false, right=false) {
+         const tabs = document.querySelectorAll('.mdc-tab');
+         if(right) {
+         this.tabBar.scrollIntoView(tabs.length -1);
+         } else if(left) {
+           this.tabBar.scrollIntoView(0);
+         }
+       },
+     getAllFuncs(toCheck) {
+    var props = [];
+    var obj = toCheck;
+    do {
+        props = props.concat(Object.getOwnPropertyNames(obj));
+    } while (obj = Object.getPrototypeOf(obj));
+
+    return props.sort().filter(function(e, i, arr) { 
+       if (e!=arr[i+1] && typeof toCheck[e] == 'function') return true;
+    });
+}
      },
      mounted() {
            this.tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));

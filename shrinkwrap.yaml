@@ -15,7 +15,7 @@ dependencies:
   express: 4.17.1
   material-components-web: 10.0.0
   material-design-icons: 3.0.1
-  mongoose: 5.11.16
+  mongoose: 5.11.17
   node-sass: 5.0.0
   nprogress: 0.2.0
   sass-loader: 10.1.1
@@ -1707,7 +1707,7 @@ packages:
       integrity: sha512-W98JrE0j2K78swW4ukqMleo8R7h/pFETjM2DQ90MF6XK2i4LO4W3gQ71Lt4w3bfm2EvVSyWHplECvB5sK22yFQ==
   /@types/bson/4.0.3:
     dependencies:
-      '@types/node': 14.14.27
+      '@types/node': 14.14.28
     dev: false
     resolution:
       integrity: sha512-mVRvYnTOZJz3ccpxhr3wgxVmSeiYinW+zlzQz3SXWaJmD1DuL05Jeq7nKw3SnbKmbleW5qrLG5vdyWe/A9sXhw==
@@ -1780,7 +1780,7 @@ packages:
   /@types/mongodb/3.6.7:
     dependencies:
       '@types/bson': 4.0.3
-      '@types/node': 14.14.27
+      '@types/node': 14.14.28
     dev: false
     resolution:
       integrity: sha512-47P64kbkXarlleSMzSrRG04uzY+Dr3xAilOiqRIsqj/sZrmq6cUMx8njydY/iWMqi8IdE9ojFQl/X3ou9EsAlQ==
@@ -1788,10 +1788,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
-  /@types/node/14.14.27:
+  /@types/node/14.14.28:
     dev: false
     resolution:
-      integrity: sha512-Ecfmo4YDQPwuqTCl1yBxLV5ihKfRlkBmzUEDcfIRvDxOTGQEeikr317Ln7Gcv0tjA8dVgKI3rniqW2G1OyKDng==
+      integrity: sha512-lg55ArB+ZiHHbBBttLpzD07akz0QPrZgUODNakeC09i62dnrywr9mFErHuaPlB6I7z+sEbK+IYmplahvplCj2g==
   /@types/normalize-package-data/2.4.0:
     dev: true
     resolution:
@@ -6435,7 +6435,7 @@ packages:
       mongoose: '*'
     resolution:
       integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
-  /mongoose/5.11.16:
+  /mongoose/5.11.17:
     dependencies:
       '@types/mongodb': 3.6.7
       bson: 1.1.5
@@ -6453,7 +6453,7 @@ packages:
     engines:
       node: '>=4.0.0'
     resolution:
-      integrity: sha512-qmolyGAskPuq0Xr3j2Tjm9jwRccGGnLRWtTuyRvYBZoyItajwIoQdetJH8oVzs3N7aZK/GKZ82xV/t97suF8Pg==
+      integrity: sha512-qggwwv+oTsjvlto9fhq17l2Mojl5Gn8GN7NxnaLjsZbjT4O5ONtKtGtymHZ23viGrlHn6rNFMJEnEql2G6tyrg==
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -9739,7 +9739,7 @@ specifiers:
   express: ^4.17.1
   material-components-web: ^10.0.0
   material-design-icons: ^3.0.1
-  mongoose: ^5.11.16
+  mongoose: ^5.11.17
   node-sass: ^5.0.0
   nprogress: ^0.2.0
   sass-loader: ^10.1.1

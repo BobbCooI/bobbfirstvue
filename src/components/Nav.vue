@@ -13,8 +13,8 @@
             <router-link :to="{name: 'homePage'}" class="navbar__links" id="home-page" ontouchstart="">Home</router-link>
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="about-page" :class="{'router-link-active': subIsActive(['/faq', '/contact', '/help', '/statistics'])}" ontouchstart="">About <i class="fas fa-angle-down"></i></a>
-            <ul id="about-dropdown" class="dropdown">
+            <a class="navbar__links" href="javascript:void(0)" id="about-page" :class="{'router-link-active': subIsActive(['/faq', '/contact', '/help', '/statistics'])}" ontouchstart="" @click="aboutDrop=!aboutDrop">About <i class="fas fa-angle-down"></i></a>
+            <ul id="about-dropdown" class="dropdown" v-if="aboutDrop">
               <li>
                  <router-link :to="{name: 'contactPage'}" class="dropdown-item" >Contact</router-link>
               <li>   <router-link :to="{name: 'FAQpage'}" class="dropdown-item" >FAQ</router-link></li>
@@ -25,16 +25,16 @@
         <!--    <router-link :to="{path: '/', hash: '#about'}" class="navbar__links" id="about-page" @click="log">About</router-link>-->
           </li>
           <li class="navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" id="services-page" ontouchstart="">Services <i class="fas fa-angle-down"></i></a>
-            <ul id="services-dropdown" class="dropdown">
+            <a class="navbar__links" href="javascript:void(0)" id="services-page" ontouchstart="" @click="servicesDrop=!servicesDrop">Services <i class="fas fa-angle-down"></i></a>
+            <ul id="services-dropdown" class="dropdown" v-if="servicesDrop">
              <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Vid</router-link></li> 
              <li>  <a class="dropdown-item" >Discord</a></li>
              <li><router-link class="dropdown-item" :to="{name: 'converterPage'}">Converter</router-link></li> 
             </ul>
           </li>
          <li v-if="loggedIn" class = "navbar__item">
-            <a class="navbar__links" href="javascript:void(0)" ontouchstart="">Account <i class="fas fa-angle-down"></i></a>
-        <ul id="account-dropdown" class="dropdown">
+            <a class="navbar__links" href="javascript:void(0)" ontouchstart="" @click="accountDrop=!accountDrop"><i class="fas fa-user-check"></i> Account <i class="fas fa-angle-down"></i></a>
+        <ul id="account-dropdown" class="dropdown" v-if="accountDrop">
           <li><router-link class="dropdown-item" :to="{name: 'profilePage'}">Profile</router-link></li>
           <li><a class="dropdown-item" @click=logout>Logout</a></li>
         </ul>
@@ -57,7 +57,9 @@
   name: "navBar",
     data() {
       return {
-        inDrop: false,
+        aboutDrop: false,
+        servicesDrop: false,
+        accountDrop: false,
         loggedOut: false
       }
     },
@@ -74,66 +76,21 @@ methods: {
    mobileMenu (event) {
      document.querySelector('#mobile-menu').classList.toggle('is-active');
      document.querySelector(".navbar__menu").classList.toggle('active');
-    
-  },
-   highlightMenu (event) {
-/*  const elem = document.querySelector('.highlight');
- const hero = document.querySelector('.hero'); // to make sure user is in homepage
-     if(hero) {
-       const aboutMenu = document.querySelector('#about-page');
-       const servicesMenu = document.querySelector('#services-page');
-       const aboutDropdown = document.querySelector('#about-dropdown');
-       const servicesDropdown = document.querySelector('#services-dropdown');
-       const homeMenu = document.querySelector('#home-page');
-  let scrollPos = window.scrollY;
-  // adds 'highlight' class to my menu items
-  if (window.innerWidth > 960 && scrollPos < 600) {
-    homeMenu.classList.add('highlight');
-    aboutMenu.classList.remove('highlight');
-    servicesMenu.classList.remove('highlight');
-    return;
-  } else if (window.innerWidth > 960 && scrollPos < 1400) {
-    aboutMenu.classList.add('highlight');
-    homeMenu.classList.remove('highlight');
-    servicesMenu.classList.remove('highlight');
-    return;
-  } else if (window.innerWidth > 960 && scrollPos < 2345) {
-    servicesMenu.classList.add('highlight');
-    aboutMenu.classList.remove('highlight');
-    homeMenu.classList.remove('highlight');
-    return;
-  }
-
-  if ((elem && window.innerWidth < 960 && scrollPos < 600) || elem) {
-    elem.classList.remove('highlight');
-  }
-}*/
    },
     subIsActive(input) {
-    const paths = Array.isArray(input) ? input : [input]
-    
+    const paths = Array.isArray(input) ? input : [input] 
     return paths.some(path => {
       return this.$route.path.indexOf(path) === 0 // current path starts with this path string
-    })
-    
+    }) 
   }
+  
 },
     computed: {
          ...mapState([
       'loggedIn',
       'userInfo'
     ])
-    },
-    
-    created() {
-      window.addEventListener('scroll', this.highlightMenu);   
-      window.addEventListener('click', this.highlightMenu);
-      
-      },
-    unmounted() {
-            window.removeEventListener('scroll', this.highlightMenu);    
-      window.removeEventListener('click', this.highlightMenu);
-      }
+    }
 }
 </script>
 <style >
@@ -142,13 +99,6 @@ methods: {
   }
 </style>
 <style scoped>
-/** {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Kumbh Sans", sans-serif;scroll-behavior: smooth;
-}*/
-
   i {
     margin-left: 6px;
   }
@@ -191,7 +141,7 @@ methods: {
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
   background-size: 100%; -webkit-background-clip: text; 
-  -moz-background-clip: text;/* -webkit-text-fill-color: transparent;*/
+  -moz-background-clip: text;
   -moz-text-fill-color: transparent; 
   display: flex; 
   align-items: center; 
@@ -230,6 +180,9 @@ methods: {
   height: 100%;
   transition: all 0.3s ease;
 }
+  .fa-user-check {
+    margin-right: 3px;
+  }
   .dropdown {
     list-style: none;
     display: none;
@@ -238,6 +191,9 @@ methods: {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 109;
+  }
+  .dropdown:after {
+    display: none;
   }
   .dropdown-item {
       color: white;
@@ -291,7 +247,6 @@ methods: {
 @media screen and (max-width: 960px) {
   .navbar__container {
     display: flex;
-    /*flex-direction: column;*/
     justify-content: space-between; 
     height: 80px;
     z-index: 1;
@@ -301,8 +256,6 @@ methods: {
   }
 
   .navbar__menu {
-  /*  display: grid;
-    grid-template-columns: auto;*/
     padding-top: 20px;
     display: flex;
        justify-content: space-between; align-items: center;

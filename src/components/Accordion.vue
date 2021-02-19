@@ -1,5 +1,5 @@
 <template>
-  <div id="accordion__container" v-bind:style="styleObject">
+  <div id="accordion" v-bind:style="styleObject">
     
     <slot></slot>
   </div>
