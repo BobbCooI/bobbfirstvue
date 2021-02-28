@@ -89,7 +89,7 @@ export default {
           pUsername: this.pUsername
         };
         try {
-          let res = await Api().post('/auth/userCheck', data);
+          let res = await Api.server.post('/auth/userCheck', data);
           if(res.status === 200) this.$refs.userBox.style["border-color"] = "#2ecc71";
         } catch (e) {
           this.error = e.response.data.error;
@@ -123,7 +123,7 @@ export default {
           pSubmit: 'Register'
         };
         try {
-          let res = await Api().post('/auth/register', data);
+          let res = await Api.server.post('/auth/register', data);
           pSubmit.disabled= true;
           this.$router.push({
              name: 'homePage'

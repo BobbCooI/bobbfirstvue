@@ -35,6 +35,7 @@
           autocomplete="on"
           required
         />
+     <div class="g-recaptcha" data-sitekey="6LcNVWYaAAAAAF76V-emMgf3mP4bNcLSGdnFxs61"></div>
         <input id="pSubmit" type="submit" name="pSubmit" value="Login" autocomplete="off"/>
         <p id="forgot__pass">
           Forgot your password?
@@ -55,8 +56,8 @@ export default {
     return {
       pUsername: '',
       pPassword: '',
-      error: '',
-      }
+      error: ''
+    }
   },
   methods: {
     async login() {
@@ -65,7 +66,7 @@ export default {
         pPassword: this.pPassword
       }
       try {
-      let res = await Api().post('/auth/login', data);
+      let res = await Api.server.post('/auth/login', data);
         pSubmit.disabled = true;
         setTimeout(() => {
         this.$store.dispatch('setToken', res.data.token);
@@ -81,10 +82,10 @@ export default {
          }, 2500)
       }
     },
-    resetBox() {
+   async resetBox() {
         if ("block" === this.$refs.errBox.style.display) this.$refs.errBox.style.display = "none";
-    }
-  },
+     }
+  }
   
 }
 </script>

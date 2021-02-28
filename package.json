@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "concurrently": "^5.3.0",
-    "core-js": "^3.8.2",
+    "core-js": "^3.9.0",
     "express": "^4.17.1",
     "mongoose": "^5.11.17",
     "nprogress": "^0.2.0",
@@ -32,12 +32,17 @@
     "@material/tab-scroller": "^10.0.0",
     "sass-loader": "^10.1.1",
     "node-sass": "^5.0.0",
-    "vuetify": "^2.4.3",
     "material-components-web": "^10.0.0",
     "vue-material": "^1.0.0",
     "@material/menu": "^10.0.0",
     "@material/menu-surface": "^10.0.0",
-    "@material/typography": "^10.0.0"
+    "@material/typography": "^10.0.0",
+    "plyr": "^3.6.4",
+    "vue-plyr": "^7.0.0",
+    "@material/card": "^10.0.0",
+    "moment": "^2.29.1",
+    "@material/snackbar": "^10.0.0",
+    "crypto-js": "^4.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

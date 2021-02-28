@@ -16,6 +16,7 @@
     <!-- About Section -->
     <div class="main" id="about">
       <div class="main__container">
+        <Card/>
         <div class="main__img--container">
           <div class="main__img--card"><i class="fas fa-layer-group"></i></div>
         </div>
@@ -95,12 +96,14 @@
 </template>
 
 <script>
-  import {MDCRipple} from '@material/ripple/index'
+  import {MDCRipple} from '@material/ripple/index';
+  import Card from './Card.vue';
 export default {
   name: 'Main',
+  components: {Card},
   data() {
     return {
-      ripple: null
+      ripple: null,
     }
   },
   mounted() {
@@ -125,10 +128,11 @@ export default {
   }
   /* Hero Section */
 .hero {
-  background: #000000;
-  background: linear-gradient(to right, #161616, #000000);
+/*  background: #000000;
+    background: linear-gradient(to right, #161616, #000000);*/
+
+background: #2a3e52;
   padding: 150px 0;
-  border-bottom: 3px ridge red;
 }
 
 .hero__container {
@@ -206,9 +210,8 @@ z-index: 20;}
 
 /* About Section */
 .main {
-  background-color: #131313;
+  background-color: #2a3e52;
   padding: 10rem 0;
-  border-bottom: 3px ridge red;
 }
 
 .main__container {
@@ -410,14 +413,13 @@ btnSpan {
 
 /* Services Section */
 .services {
-  background: #131313;
+  background: #2a3e52;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 10rem 0;
-  border-bottom: 3px ridge red;
 }
 
 .services h1 {
@@ -525,13 +527,12 @@ btnSpan {
 
 /* Extras CSS */
 .extras__container {
-  background-color: #131313;
+  background-color: #2a3e52;
   padding: 5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 3px ridge red;
 }
 .extras__content {
   display: flex;

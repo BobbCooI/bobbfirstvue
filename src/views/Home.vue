@@ -22,7 +22,7 @@ async created() {
     localStorage.setItem('visitCount', Number(count) + 1);
   } 
   count = localStorage.getItem('visitCount');
-  await Api().post('/visits', {increment: true});
+  await Api.server.post('/visits', {increment: true});
   }
 }
 </script>

@@ -30,7 +30,6 @@ export default {
     
       let next = event.target.nextElementSibling;
               next.classList.toggle('hidden')
-      console.log(next, next.className);
       if (next.style.maxHeight){
         console.log('maxHeight', next.style.maxHeight)
 		      next.style.maxHeight = null            //`${next.style.maxHeight - next.scrollHeight}px`;

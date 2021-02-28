@@ -53,12 +53,11 @@ export default {
   }
   .bb-footer {
     display: flex;
-    justify-content: space-between;
-    position: relative;
+    justify-content: space-evenly;
     bottom: 0;
-    width: 100%;
+    min-width: 100%;
     z-index: 3000;
-    margin-right: 5%;
+    padding-right: 6.5%;
   }
   #footer-line {
     display: grid;
@@ -79,8 +78,8 @@ export default {
 }
 .bb-icon-link {
 	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+
+  align-items: center;
   font-size: 20px;
   text-decoration: none;
   color: white;

@@ -51,6 +51,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "converterPage" */ "../views/Converter.vue")
   },
   {
+    path: "/code",
+    name: "codeBoxPage",
+    component: () => import(/* webpackChunkName: "codeBoxPage" */ "../views/CodeBox.vue")
+  },
+  {
     path: "/contact",
     name: "contactPage",
     component: () => import(/* webpackChunkName: "contactPage" */ "../views/Contact.vue")

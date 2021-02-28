@@ -1,8 +1,10 @@
 dependencies:
   '@material/button': 10.0.0
+  '@material/card': 10.0.0
   '@material/menu': 10.0.0
   '@material/menu-surface': 10.0.0
   '@material/ripple': 10.0.0
+  '@material/snackbar': 10.0.0
   '@material/tab': 10.0.0
   '@material/tab-bar': 10.0.0
   '@material/tab-indicator': 10.0.0
@@ -11,18 +13,21 @@ dependencies:
   '@material/typography': 10.0.0
   axios: 0.21.1
   concurrently: 5.3.0
-  core-js: 3.8.3
+  core-js: 3.9.0
+  crypto-js: 4.0.0
   express: 4.17.1
   material-components-web: 10.0.0
   material-design-icons: 3.0.1
+  moment: 2.29.1
   mongoose: 5.11.17
   node-sass: 5.0.0
   nprogress: 0.2.0
+  plyr: 3.6.4
   sass-loader: 10.1.1
   vue: 3.0.5
   vue-material: 1.0.0
+  vue-plyr: 7.0.0
   vue-router: 4.0.3
-  vuetify: 2.4.4
   vuex: 4.0.0
 devDependencies:
   '@vue/cli-plugin-babel': 4.5.11
@@ -3568,9 +3573,15 @@ packages:
     resolution:
       integrity: sha512-1sCb0wBXnBIL16pfFG1Gkvei6UzvKyTNYpiC41yrdjEv0UoJoq9E/abTMzyYJ6JpTkAj15dLjbqifIzEBDVvog==
   /core-js/3.8.3:
+    dev: true
     requiresBuild: true
     resolution:
       integrity: sha512-KPYXeVZYemC2TkNEkX/01I+7yd+nX3KddKwZ1Ww7SKWdI2wQprSgLmrTddT8nw92AjEklTsPBoSdQBhbI1bQ6Q==
+  /core-js/3.9.0:
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-PyFBJaLq93FlyYdsndE5VaueA9K5cNB7CGzeCj191YYLhkQM0gdZR2SKihM70oF0wdqKSKClv/tEBOpoRmdOVQ==
   /core-util-is/1.0.2:
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
@@ -3650,6 +3661,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==
+  /crypto-js/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-bzHZN8Pn+gS7DQA6n+iUmBfl0hO5DJq++QP3U6uTucDtk/0iGpXd/Gg7CGR0p8tJhofJyaKoWBuJI4eAO00BBg==
   /css-color-names/0.0.4:
     dev: true
     resolution:
@@ -3825,6 +3840,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-mI3zP+qxke95mmE2nddsF635V+o=
+  /custom-event-polyfill/1.0.7:
+    dev: false
+    resolution:
+      integrity: sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==
   /cyclist/1.0.1:
     dev: true
     resolution:
@@ -5963,6 +5982,10 @@ packages:
       node: '>=8.9.0'
     resolution:
       integrity: sha512-rP4F0h2RaWSvPEkD7BLDFQnvSf+nK+wr3ESUjNTyAGobqrijmW92zc+SO6d4p4B1wh7+B/Jg1mkQe5NYUEHtHQ==
+  /loadjs/4.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-AgQGZisAlTPbTEzrHPb6q+NYBMD+DP9uvGSIjSUM5uG+0jG15cb8axWpxuOIqrmQjn6scaaH8JwloiP27b2KXA==
   /locate-path/3.0.0:
     dependencies:
       p-locate: 3.0.0
@@ -6415,6 +6438,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+  /moment/2.29.1:
+    dev: false
+    resolution:
+      integrity: sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
   /mongodb/3.6.4:
     dependencies:
       bl: 2.2.1
@@ -7190,6 +7217,16 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
+  /plyr/3.6.4:
+    dependencies:
+      core-js: 3.9.0
+      custom-event-polyfill: 1.0.7
+      loadjs: 4.2.0
+      rangetouch: 2.0.1
+      url-polyfill: 1.1.12
+    dev: false
+    resolution:
+      integrity: sha512-l0EKsRxhwGtzpPJhs+okusogXRiJaagNaGYlj+iiyqyNzjh0ef5bhxNLsKhpsGvvZMnfV/KbOvIva+qeNCA9ng==
   /pnp-webpack-plugin/1.6.4:
     dependencies:
       ts-pnp: 1.2.0
@@ -7764,6 +7801,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+  /rangetouch/2.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-sln+pNSc8NGaHoLzwNBssFSf/rSYkqeBXzX1AtJlkJiUaVSJSbRAWJk+4omsXkN+EJalzkZhWQ3th1m0FpR5xA==
   /raw-body/2.4.0:
     dependencies:
       bytes: 3.1.0
@@ -9215,6 +9256,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  /url-polyfill/1.1.12:
+    dev: false
+    resolution:
+      integrity: sha512-mYFmBHCapZjtcNHW0MDq9967t+z4Dmg5CJ0KqysK3+ZbyoNOWQHksGCTWwDhxGXllkWlOc10Xfko6v4a3ucM6A==
   /url/0.11.0:
     dependencies:
       punycode: 1.3.2
@@ -9350,6 +9395,13 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-av/oUNRms4spyb+rT+GEOV232SLfqpI2pj53eZe/+Q/jQLQ/X+T/BS4UijfSa7STzxDJ9jfwVc9ncECxVgNhjw==
+  /vue-plyr/7.0.0:
+    dependencies:
+      plyr: github.com/sampotts/plyr/028be22dec323b23727315ef0c34682192991488
+      vue: 2.6.12
+    dev: false
+    resolution:
+      integrity: sha512-NvbO/ZzV1IxlBQQbQlon5Sk8hKuGAj3k4k0XVdi7gM4oSqu8mZMhJ3WM3FfAtNfV790jbLnb8P3dHYqaBqIv6g==
   /vue-router/4.0.3:
     dev: false
     peerDependencies:
@@ -9379,12 +9431,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-TfaprOmtsAfhQau7WsomXZ8d9op/dkQLNIq8qPV3A0Vxs6GR5E+c1rfJS1SDkXRQj+dFyfnec7+U0Be1huiScg==
-  /vuetify/2.4.4:
-    dev: false
-    peerDependencies:
-      vue: ^2.6.4
-    resolution:
-      integrity: sha512-/4+xX9XbcwXBjrtptDxm5S4NXVaVGF8UJ3U7Nk20fl4aM84PGgGyqVCfi8hVa8t1gd+2Wz4FCztbR7JgJcBIQQ==
   /vuex/4.0.0:
     dev: false
     peerDependencies:
@@ -9715,14 +9761,29 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
+  github.com/sampotts/plyr/028be22dec323b23727315ef0c34682192991488:
+    dependencies:
+      core-js: 3.9.0
+      custom-event-polyfill: 1.0.7
+      loadjs: 4.2.0
+      rangetouch: 2.0.1
+      url-polyfill: 1.1.12
+    dev: false
+    name: plyr
+    resolution:
+      registry: 'https://registry.npmjs.org/'
+      tarball: 'https://codeload.github.com/sampotts/plyr/tar.gz/028be22dec323b23727315ef0c34682192991488'
+    version: 3.6.4
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@material/button': ^10.0.0
+  '@material/card': ^10.0.0
   '@material/menu': ^10.0.0
   '@material/menu-surface': ^10.0.0
   '@material/ripple': ^10.0.0
+  '@material/snackbar': ^10.0.0
   '@material/tab': ^10.0.0
   '@material/tab-bar': ^10.0.0
   '@material/tab-indicator': ^10.0.0
@@ -9735,16 +9796,19 @@ specifiers:
   '@vue/compiler-sfc': ^3.0.0-0
   axios: ^0.21.1
   concurrently: ^5.3.0
-  core-js: ^3.8.2
+  core-js: ^3.9.0
+  crypto-js: ^4.0.0
   express: ^4.17.1
   material-components-web: ^10.0.0
   material-design-icons: ^3.0.1
+  moment: ^2.29.1
   mongoose: ^5.11.17
   node-sass: ^5.0.0
   nprogress: ^0.2.0
+  plyr: ^3.6.4
   sass-loader: ^10.1.1
   vue: ^3.0.5
   vue-material: ^1.0.0
+  vue-plyr: ^7.0.0
   vue-router: ^4.0.3
-  vuetify: ^2.4.3
   vuex: ^4.0.0

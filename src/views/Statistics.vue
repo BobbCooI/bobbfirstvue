@@ -29,7 +29,7 @@ export default {
     }
   },
 async created() {
-  let res = await Api().post('/visits', {getVisits: true});
+  let res = await Api.server.post('/visits', {getVisits: true});
   res=res.data;
    this.visitCount = res.visitCount;
   return res.visitCount; 

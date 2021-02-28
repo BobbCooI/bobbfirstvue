@@ -30,7 +30,8 @@
              <li><router-link class="dropdown-item" :to="{name: 'animesPage'}">Vid</router-link></li> 
              <li>  <a class="dropdown-item" >Discord</a></li>
              <li><router-link class="dropdown-item" :to="{name: 'converterPage'}">Converter</router-link></li> 
-            </ul>
+           <li><router-link class="dropdown-item" :to="{name: 'codeBoxPage'}">Code</router-link></li> 
+  </ul>
           </li>
          <li v-if="loggedIn" class = "navbar__item">
             <a class="navbar__links" href="javascript:void(0)" ontouchstart="" @click="accountDrop=!accountDrop"><i class="fas fa-user-check"></i> Account <i class="fas fa-angle-down"></i></a>
@@ -60,10 +61,18 @@
         aboutDrop: false,
         servicesDrop: false,
         accountDrop: false,
-        loggedOut: false
+        loggedOut: false,
+        logoutBar: null
       }
     },
     components:{Notify},
+        mounted() {
+          console.log(document.querySelector('.mdc-snackbar'));
+   //       this.logoutBar
+      //    const log= new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+        },
+
+
 methods: {
       logout () {
       this.$store.dispatch('setToken', null);
