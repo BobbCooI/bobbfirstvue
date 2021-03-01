@@ -145,5 +145,10 @@ module.exports = Bobb => ({
  capitalize (s) {
   if (typeof s !== 'string') return ''
   return s.charAt(0).toUpperCase() + s.slice(1)
-}
+},
+     encode64(string) {const encodedWord = CryptoJS.enc.Utf8.parse(string);const encoded = CryptoJS.enc.Base64.stringify(encodedWord); return encoded;},
+ decode64(string) {const encodedWord = CryptoJS.enc.Base64.parse(string); const decoded = CryptoJS.enc.Utf8.stringify(encodedWord);return decoded;}
+
+
+
 });

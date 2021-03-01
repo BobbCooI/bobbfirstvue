@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', cors(corsOptionsDelegate))
 app.use('/api/auth', auth);
+app.use('/api/discord', require('./api/discord'));
 app.use('/api', visits);
 // Express port-switching logic
 let port = 3000;

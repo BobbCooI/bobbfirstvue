@@ -33,6 +33,7 @@ class Bobb {
     this.cmds.forEach(cmd => {
       console.log(cmd.category);
     })
+    console.log('Ready for action ❣️')
   };
   
   

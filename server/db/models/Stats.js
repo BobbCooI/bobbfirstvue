@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const statSchema = new mongoose.Schema({
+  usersCreated: {type: Number, default: 0}, // WEBSITE ACCOUNTS
+  usersVerified: {type: Number, default: 0}, // DISCORD VERIFIED IN SERVER
   messages: {type: Number, default: 0},
   commands: {type: Number, default: 0},
   guildsJoined: {type: Number, default: 0},

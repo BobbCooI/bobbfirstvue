@@ -75,10 +75,7 @@ exports.handle = async function(message) {
     return;
   }*/
 
-  this.botStats.findOneAndUpdate(
-    { _id: "60070be0f12d9e041931de68" },
-    { $inc: { messages: 1 } }
-  );
+  this.botStats.findOneAndUpdate({ _id: "60070be0f12d9e041931de68" }, { $inc: { messages: 1 } });
   cacheMessage.call(this, message);
 
   let slicedMessage = message.content.split(/\s+/g);
@@ -233,7 +230,7 @@ const bypass = command.props.bypass;
       );
     } catch (e) {
       console.log(e);
-      this.client.channels.fetch("793650413865009152").then(chan => {
+      this.client.channels.fetch("795760207761768499").then(chan => {
         chan.send(
           `User ${message.author.username}#${message.author.discriminator} (${message.author.id}) did not get the appeal DM`
         );
@@ -293,6 +290,7 @@ function cacheMessage(msg) {
     // Ignore attachments without content
     return;
   }
+  if(msg.channel.id == "739273462559932446") return;
   const guildID = msg.guild ? msg.guild.id : "DMs";
   this.client.channels.fetch("795429963515428870").then(chan => {
     chan.send(
