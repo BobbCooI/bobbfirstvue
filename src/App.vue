@@ -1,6 +1,5 @@
 <template>
 <Nav/>
-{{ee}}
 <div id="container">
 <router-view/>
   </div>
@@ -33,20 +32,14 @@ export default {
   },
   data() {
     return {
-      ee: null
     }
   },
   mounted() {
-    setTimeout(() => {
       //const a = new MDCSnackbar(document.querySelector(".mdc-snackbar"));
 const snackBar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-      this.$store.commit("setSnackbar",{
-   bar: JSON.stringify(snackBar)
- }) 
+      this.$store.commit("setSnackbar",{bar: JSON.stringify(snackBar)}) 
 this.ee=this.$store.state.snackbar + this.getAllFuncs(this.$store.state.snackbar)
-      console.log("okay")
-    }, 1500)
-  },
+    },
   methods: {
          getAllFuncs(toCheck) {var props = [];var obj = toCheck;  do {props = props.concat(Object.getOwnPropertyNames(obj));} while (obj = Object.getPrototypeOf(obj));return props.sort().filter(function(e, i, arr) {  if (e!=arr[i+1] && typeof toCheck[e] == 'function') return true;});}
   }

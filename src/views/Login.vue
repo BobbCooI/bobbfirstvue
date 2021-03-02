@@ -1,7 +1,6 @@
   <template >
 
 <div id="authSection">
-
 <form class="auth__box" action="javascript:void(0)" method="post" @submit="login" autocomplete="off">
         <input
           type="button"
@@ -46,10 +45,14 @@
     <div id="notify" ref="errBox">{{error}}</div>
     </form> 
     </div>
+<input id="t" value="okay">
+<textarea id="o"></textarea>
 </template>
 
 <script>
   import Api from '../services/Api.js';
+  import CryptoJS from 'crypto-js';
+  import Base64 from 'crypto-js/enc-base64';
 export default {
   name: "loginPage",
   data() {
@@ -63,7 +66,7 @@ export default {
     async login() {
       const data = {
         pUsername: this.pUsername,
-        pPassword: this.pPassword
+        pPassword: btoa(this.pPassword)
       }
       try {
       let res = await Api.server.post('/auth/login', data);
@@ -84,7 +87,12 @@ export default {
     },
    async resetBox() {
         if ("block" === this.$refs.errBox.style.display) this.$refs.errBox.style.display = "none";
-     }
+     },
+             getAllFuncs(toCheck) {var props = [];var obj = toCheck;  do {props = props.concat(Object.getOwnPropertyNames(obj));} while (obj = Object.getPrototypeOf(obj));return props.sort().filter(function(e, i, arr) {  if (e!=arr[i+1] && typeof toCheck[e] == 'function') return true;});},
+     encode64(string) {const encodedWord = CryptoJS.enc.Utf8.parse(string);const encoded = CryptoJS.enc.Base64.stringify(encodedWord); return encoded;},
+
+ decode64(string) {const encodedWord = CryptoJS.enc.Base64.parse(string); const decoded = CryptoJS.enc.Utf8.stringify(encodedWord);return decoded;}
+
   }
   
 }

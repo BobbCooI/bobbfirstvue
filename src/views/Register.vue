@@ -119,7 +119,7 @@ export default {
         let data = {
           pEmail: this.pEmail, 
           pUsername: this.pUsername,
-          pPassword: this.pPassword,
+          pPassword: btoa(this.pPassword),
           pSubmit: 'Register'
         };
         try {

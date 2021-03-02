@@ -9,7 +9,7 @@
      </span>
      <span class="mdc-tab__ripple"></span>    
   </button>
-{{exampleVal}} <!-- Refers to the variable inside the data return -->
+<!-- {{exampleVal}} Refers to the variable inside the data return -->
 </template>
 
 <script>
@@ -17,8 +17,8 @@
   export default {
   name: 'Tab',
   props: ["tabIndex"],
-    data() {
-      return {
+   /* data() {
+     return {
         exampleVal: "yes"
       }
     },
@@ -28,7 +28,7 @@
       }
     },
     created() { }, // Before rendered into the DOM. 
-    mounted() { } // Rendered and mounted into the DOM. Can use document.querySelector()
+    mounted() { } // Rendered and mounted into the DOM. Can use document.querySelector()*/
 };
   
 </script>

@@ -16,6 +16,7 @@ dependencies:
   core-js: 3.9.0
   crypto-js: 4.0.0
   express: 4.17.1
+  jwt-decode: 3.1.2
   material-components-web: 10.0.0
   material-design-icons: 3.0.1
   moment: 2.29.1
@@ -5877,6 +5878,10 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-MT5mvB5cwG5Di8G3SZwuXFastqI=
+  /jwt-decode/3.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
   /kareem/2.3.2:
     dev: false
     resolution:
@@ -9799,6 +9804,7 @@ specifiers:
   core-js: ^3.9.0
   crypto-js: ^4.0.0
   express: ^4.17.1
+  jwt-decode: ^3.1.2
   material-components-web: ^10.0.0
   material-design-icons: ^3.0.1
   moment: ^2.29.1

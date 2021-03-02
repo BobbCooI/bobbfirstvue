@@ -14,6 +14,9 @@
         <div v-for="dev in devs" class="bb-dev">
           <img class="avatar" :src="`https://cdn.discordapp.com/avatars/${dev.id}/${dev.avatar}.png`" height="50" width="50">
         {{dev.username}}#{{dev.discriminator}}
+  </div> 
+          <div v-if="errorFetch">
+         Unable to fetch data. Please contact a dev to fix this issue.   
   </div>
   </div>
   </div>
@@ -55,7 +58,8 @@ Current time: {{currTime}}
      return {
        currTime: new Date().toTimeString(),
        ripple: null,
-       devs: []
+       devs: [],
+       errorFetch: false
      }
    },
    methods: {
@@ -63,8 +67,7 @@ Current time: {{currTime}}
      let av = "https://cdn.discordapp.com/avatars/443145161057370122/1c66d40634006a96b15fddc6584fa7d4.png"
     let b = "https://cdn.discordapp.com/avatars/800952633241501696/c6eb8c12d3623a6ca5575fdbb81892db.png"
      const disc =await Api.server.post('/discord/devs', {developers: ["443145161057370122", "@me"]}).catch(e => console.log(e));
-     this.devs = disc.data.developers;
-     console.log(this.devs)
+  disc.data["success"] ? this.devs = disc.data.developers:this.errorFetch = true
    }
    },
    mounted() {
