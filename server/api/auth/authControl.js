@@ -1,16 +1,16 @@
 const User = require('../../db/models/Person.js');
 const authKey = require('../../utils/authkey.js');
 const Stats = require('../../db/models/Stats.js');
-const genID = require("../../utils/authkey.js");
-const utils = require("../../utils/utils.js");
+const genID = require('../../utils/authkey.js');
+const utils = require('../../utils/utils.js');
 const CryptoJS = require('crypto-js');
-const jwt = require("jsonwebtoken");
-function jwtSignUser (user) {
-  const ONE_WEEK = 60 * 60 * 24 * 7
-  return jwt.sign(user, 'secret', {
-    expiresIn: ONE_WEEK
-  })
-};
+const jwt = require('jsonwebtoken');
+function jwtSignUser(user) {
+	const ONE_WEEK = 60 * 60 * 24 * 7;
+	return jwt.sign(user, 'secret', {
+		expiresIn: ONE_WEEK
+	});
+}
 module.exports = {
 	async register(req, res) {
 		await Stats.updateOne(
@@ -18,7 +18,7 @@ module.exports = {
 			{ $inc: { webRequests: 1 } }
 		);
 
-		const pUsername = req.body.pUsername;
+		const { pUsername } = req.body;
 		const userCheck = await User.findOne({
 			loweruser: pUsername.toLowerCase()
 		});
@@ -29,31 +29,40 @@ module.exports = {
 
 		const email = req.body.pEmail;
 		const emailCheck = await User.findOne({
-			loweruser: pUsername.toLowerCase()
+			email
 		});
 		if (emailCheck)
 			return res
 				.status(403)
 				.send({ error: 'This email account is already in use.' });
-let password = req.body.pPassword ? utils.decode64(req.body.pPassword).toString() : res.status(403).send({error: "Password is needed."}); // get Original Pass
-  let   iD;
-  password = utils.encode64(CryptoJS.AES.encrypt(password, process.env.encryptWord).toString()); // Encrypt then encode
-console.log("Registration pw", password)
-do {
-  iD = utils.makeID(8);
-} while (await User.findOne({userID: iD}));
+		let origPass = req.body.pPassword
+			? utils.decode64(req.body.pPassword).toString()
+			: res.status(403).send({ error: 'Password is needed.' }); // get Original Pass
+		let iD;
+		let ePassword = CryptoJS.AES.encrypt(
+			origPass,
+			process.env.encryptWord
+		).toString(); // Encrypt
+		do {
+			iD = utils.makeID(8);
+		} while (await User.findOne({ userID: iD }));
 
 		const user = await User.create({
 			username: req.body.pUsername,
 			loweruser: req.body.pUsername.toLowerCase(),
 			userID: iD,
 			email: req.body.pEmail,
-			password: password,
+			ePassword,
+			hPassword: origPass,
 			UUID: genID(),
 			verified: false,
 			dateCreate: new Date()
 		});
-		await Stats.findOneAndUpdate({ _id: "60070be0f12d9e041931de68" }, {$inc: { usersCreated: 1 }}, {new: true});
+		await Stats.findOneAndUpdate(
+			{ _id: '60070be0f12d9e041931de68' },
+			{ $inc: { usersCreated: 1 } },
+			{ new: true }
+		);
 
 		const userJson = user.toJSON();
 		return res.send({
@@ -69,18 +78,24 @@ do {
 
 		try {
 			const { pUsername } = req.body;
-			console.log(utils.decode64(req.body.pPassword));
-	// to Decrypt --		let password = req.body.pPassword ? CryptoJS.AES.decrypt(utils.decode64(req.body.pPassword), process.env.encryptWord).toString(CryptoJS.enc.Utf8) : res.status(403).send({error: "Password is needed."});
-	let password = req.body.pPassword ? utils.decode64(req.body.pPassword).toString() : res.status(403).send({error: "Password is needed."}); // get Original Pass
-  password = utils.encode64(CryptoJS.AES.encrypt(password, process.env.encryptWord).toString()); // Encrypt then encode
+			// to Decrypt --		let password = req.body.pPassword ? CryptoJS.AES.decrypt(utils.decode64(req.body.pPassword), process.env.encryptWord).toString(CryptoJS.enc.Utf8) : res.status(403).send({error: "Password is needed."});
+			let password = req.body.pPassword
+				? utils.decode64(req.body.pPassword).toString()
+				: res.status(403).send({ error: 'Password is needed.' }); // get Original Pass
+			const ePassword = CryptoJS.AES.encrypt(
+				password,
+				process.env.encryptWord
+			).toString(); // Encrypt then encode
 
-console.log("login pw", password);
 			const user = await User.findOne({
-				loweruser: pUsername.toLowerCase(),
-				password
-}).catch(e => console.log(e));
+				loweruser: pUsername.toLowerCase()
+			}).catch(e => console.log(e));
 
-			if (!user) {
+			// test a matching password
+			const isPassCorrect = await user
+				.comparePassword(password)
+				.catch(e => console.log(e));
+			if (!user && !isPassCorrect) {
 				return res.status(401).send({
 					error: 'The login information was incorrect'
 				});
@@ -88,10 +103,10 @@ console.log("login pw", password);
 			const userJson = user.toJSON();
 			return res.send({
 				userInfo: userJson,
-			  token: jwtSignUser(userJson)
+				token: jwtSignUser(userJson)
 			});
 		} catch (err) {
-		  console.log(err)
+			console.log(err);
 			return res.status(500).send({
 				error: 'An error has occured trying to log in'
 			});
@@ -107,8 +122,10 @@ console.log("login pw", password);
 		const { pUsername } = req.body;
 
 		const posib = await User.findOne({ loweruser: pUsername.toLowerCase() });
-		if (posib) {return res.status(403).send({ error: 'The username is already taken.' })} else {
-		  return res.send({good: true});
+		if (posib) {
+			return res.status(403).send({ error: 'The username is already taken.' });
+		} else {
+			return res.send({ good: true });
 		}
 	}
 };
