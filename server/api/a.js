@@ -5,7 +5,7 @@ const genID = require("../utils/authkey.js");
 const Stats = require('../db/models/Stats.js');
 console.log(genID());
 const email = require("../utils/mailer.js");
-router.post('/auth', async (req, res) => {
+/*router.post('/auth', async (req, res) => {
     await Stats.updateOne({_id: "60070be0f12d9e041931de68"}, {$inc: {webRequests: 1}});
     const keys = Object.keys(req.body);
     const values = Object.values(req.body);
@@ -43,4 +43,4 @@ return res.redirect('https://vuehj23nso.glitch.me')
     return res.json({ exists: bool })
   }
             })
-module.exports = router;
+module.exports = router;*/

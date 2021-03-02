@@ -29,6 +29,8 @@ app.use('/api', cors(corsOptionsDelegate))
 app.use('/api/auth', auth);
 app.use('/api/discord', require('./api/discord'));
 app.use('/api', visits);
+app.use('/api', require('./api/gogo.js'));
+
 // Express port-switching logic
 let port = 3000;
 const listener = app.listen(port, () => {
