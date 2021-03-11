@@ -31,23 +31,7 @@ module.exports = Bobb => ({
 
   },
   getGuild: async function getGuild(id, update) {
-    let gui;
-    if (id) {
-      gui = await Bobb.mongo.Guild.findOne(
-        { guildID: id },
-        async (err, res) => {
-          if (err) throw err;
-          return res;
-        }
-      );
-      if (!update) return gui;
-    }
-
-    if (update) {
-      return Bobb.mongo.Guild.updateOne({ guildID: id }, update, err => {
-        if (err) throw err;
-      });
-    }
+  return id && !update? await Bobb.mongo.Guild.findOne({guildID: id}).catch(e => console.log(e)): await Bobb.mongo.Guild.findOneAndUpdate({guildID: id}, update).catch(e => console.log(e))
   },
   addSpam: async function addSpam(userID) {
     return Bobb.cmds.findOneAndUpdate({discID: userID}, {$inc: {spam: 1}}, {new: true});

@@ -15,6 +15,8 @@ class Bobb {
     // TO DO REFRACTOR DB FUNCTIONS CODE
   this.botStats = require('../db/models/Stats.js');
     this.config = require('../config.json');
+    this.Crunchy = require('../utils/scrapers/crunchyClass.js');
+    this.Funi = require("../utils/scrapers/funiClass.js");
     this.log = require('../utils/logger.js').bind(this);
   //  this.helpers = require('./utils/dbFunctions.js')(this);  
     this.misc = require('../utils/botMisc.js')(this);
@@ -44,6 +46,7 @@ class Bobb {
     await client.user.setActivity(`${this.client.guilds.cache.size} servers and all you qts`, {type: 'WATCHING'});
     this.mentionRX = new RegExp(`^<@!*${this.client.user.id}>`);
     this.mockIMG = await this.http.get('https://pbs.twimg.com/media/DAU-ZPHUIAATuNy.jpg').then(r => r.body);
+    client.aniCache = {};
   
   }
   loadCommands () {

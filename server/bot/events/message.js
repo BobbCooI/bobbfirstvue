@@ -64,10 +64,10 @@ const PREMATURE_REQUIREMENTS = [
 ].concat(SWEARWORDS);
 
 exports.handle = async function(message) {
+  let st = new Date;
   if (message.author.bot) {
     return;
   }
-
   /*  if (
     this.config.options.dev &&
     !this.config.options.developers.includes(message.author.id)
@@ -77,7 +77,6 @@ exports.handle = async function(message) {
 
   this.botStats.findOneAndUpdate({ _id: "60070be0f12d9e041931de68" }, { $inc: { messages: 1 } });
   cacheMessage.call(this, message);
-
   let slicedMessage = message.content.split(/\s+/g);
   let passed;
   if (
@@ -98,10 +97,9 @@ exports.handle = async function(message) {
   // if (!passed || await this.db.checkBlocked(msg.author.id, msg.channel.guild.id)) { return; }   BLACKLISTED?
   const guildID = message.guild ? message.guild.id : false;
   const gConfig = guildID
-    ? await this.db.getGuild(message.guild.id)
-    : { prefix: "a!" };
-
-  gConfig.disabledCategories = gConfig.disabledCategories
+    ? await this.db.getGuild(guildID)
+    : { prefix: "a!" }; // this method takes like 500-1000 milliseconds.
+ gConfig.disabledCategories = gConfig.disabledCategories
     ? gConfig.disabledCategories
     : [];
   gConfig.enabledCommands = gConfig.enabledCommands
@@ -119,7 +117,6 @@ exports.handle = async function(message) {
       nou: false
     };
   }
-
   // Auto responses
   for (const autoResponse in gConfig.autoResponse) {
     if (gConfig.autoResponse[autoResponse]) {
@@ -149,10 +146,7 @@ exports.handle = async function(message) {
       );
     }
   }
-  await this.botStats.updateOne(
-    { _id: "60070be0f12d9e041931de68" },
-    { $inc: { messages: 1 } }
-  );
+
   const selfMember = message.guild
     ? message.guild.me
     : { nick: false, id: "800952633241501696" };

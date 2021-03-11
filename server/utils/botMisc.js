@@ -88,6 +88,11 @@ module.exports = Bobb => ({
   randomColor() {
     return Math.floor(Math.random() * 0xffffff);
   },
+   timeMili(millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+},
   async parseUser(message, person) {
     await message.guild.members.fetch({ cache: true });
     const idMatcher = /^([0-9]{15,21})$/;
@@ -137,7 +142,16 @@ module.exports = Bobb => ({
     
     return parseInt(ret);
   },
-  
+   chunkSubstr(str, size) {
+  const numChunks = Math.ceil(str.length / size)
+  const chunks = new Array(numChunks)
+
+  for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
+    chunks[i] = str.substr(o, size)
+  }
+
+  return chunks
+},
   moveImg(img, file) {
     var data = img.replace(/^data:image\/\w+;base64,/, "");var buf = Buffer.from(data, 'base64');fs.writeFileSync('./img/ss.png', buf);
     
